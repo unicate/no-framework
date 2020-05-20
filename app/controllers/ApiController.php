@@ -9,7 +9,7 @@ use Laminas\Diactoros\Response;
 use nofw\services\ConfigService;
 
 
-class ApiController extends GenericController {
+class ApiController extends AbstractController {
     private $configService;
     private $dbService;
 

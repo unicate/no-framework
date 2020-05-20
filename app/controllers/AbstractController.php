@@ -5,7 +5,7 @@ namespace nofw\controllers;
 
 use Psr\Http\Message\ResponseInterface;
 
-abstract class GenericController {
+abstract class AbstractController {
 
     public function jsonResponse(ResponseInterface $response, array $payload) {
         $response->getBody()->write(json_encode($payload));

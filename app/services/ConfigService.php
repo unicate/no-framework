@@ -3,7 +3,6 @@
 
 namespace nofw\services;
 
-use Symfony\Component\Dotenv\Dotenv;
 
 class ConfigService {
 
@@ -14,12 +13,12 @@ class ConfigService {
     public $dbPassword;
 
     public function __construct() {
-        $dotenv = new Dotenv();
-        $dotenv->load(__DIR__ . '/../config/.env');
-        $this->appVersion = $_ENV['APP_VERSION'];
-        $this->basePath = $_ENV['BASE_PATH'];
-        $this->dbName= $_ENV['DB_NAME'];
-        $this->dbUser = $_ENV['DB_USER'];
-        $this->dbPassword = $_ENV['DB_PWD'];
+        $config = include(__DIR__ . '/../config/config.php');
+
+        $this->appVersion = $config['APP_VERSION'];
+        $this->basePath = $config['BASE_PATH'];
+        $this->dbName = $config['DB_NAME'];
+        $this->dbUser = $config['DB_USER'];
+        $this->dbPassword = $config['DB_PWD'];
     }
 }

@@ -7,8 +7,8 @@ return [
     ],
     [
         'method' => 'GET',
-        'path' => '/test',
-        'handler' => 'nofw\controllers\MainController::test',
+        'path' => '/info',
+        'handler' => 'nofw\controllers\MainController::info',
     ],
     [
         'method' => 'GET',

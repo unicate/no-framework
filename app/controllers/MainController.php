@@ -8,7 +8,7 @@ use Laminas\Diactoros\Response;
 use nofw\services\DatabaseService;
 
 
-class MainController extends GenericController {
+class MainController extends AbstractController {
     private $dbService;
 
 
@@ -22,7 +22,7 @@ class MainController extends GenericController {
         return $this->basicResponse(new Response(), '<h1>index</h1>');
     }
 
-    public function test(ServerRequestInterface $request, array $args) {
+    public function info(ServerRequestInterface $request, array $args) {
         return $this->basicResponse(new Response(), '<h1>DB Version ' . $this->dbService->info()['version'] . '</h1>');
     }
 
