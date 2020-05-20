@@ -20,6 +20,9 @@ class DatabaseService {
         return $this->connection->info();
     }
 
+    /**
+     * @see https://medoo.in/
+     */
     private function init() {
         $connection = new Medoo([
             'database_type' => 'mysql',

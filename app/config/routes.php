@@ -17,6 +17,11 @@ return [
     ],
     [
         'method' => 'GET',
+        'path' => '/page',
+        'handler' => 'nofw\controllers\MainController::page',
+    ],
+    [
+        'method' => 'GET',
         'path' => '/api',
         'handler' => 'nofw\controllers\ApiController::index',
     ],

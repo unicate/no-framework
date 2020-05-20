@@ -6,17 +6,17 @@ namespace nofw\controllers;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 use nofw\services\DatabaseService;
+use nofw\services\ViewService;
 
 
 class MainController extends AbstractController {
     private $dbService;
+    private $viewService;
 
-
-    public function __construct(DatabaseService $dbService) {
+    public function __construct(DatabaseService $dbService, ViewService $viewService) {
         $this->dbService = $dbService;
+        $this->viewService = $viewService;
     }
-
-
 
     public function index(ServerRequestInterface $request, array $args) {
         return $this->basicResponse(new Response(), '<h1>index</h1>');
@@ -29,5 +29,14 @@ class MainController extends AbstractController {
     public function main(ServerRequestInterface $request, array $args) {
         $id = $args["id"];
         return $this->basicResponse(new Response(), '<h1>Main ID ' . $id . '</h1>');
+    }
+
+    public function page(ServerRequestInterface $request, array $args) {
+        $data = [
+            "lang" => "de",
+            "title" => "No Framework",
+            "text" => "Attention: This is not a framework."
+        ];
+        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, $data));
     }
 }
