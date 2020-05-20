@@ -36,7 +36,6 @@ class RoutingService {
         foreach ($routes as $route) {
             $router->addRoute($route['method'], $basePath . $route['path'], $route['handler']);
         }
-
         $response = $router->dispatch($request);
 
         $emitter = new SapiEmitter();

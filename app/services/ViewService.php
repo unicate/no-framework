@@ -22,9 +22,9 @@ class ViewService {
         $view->setDirectory(__DIR__ . '/../pages');
         $view->setFileExtension('php'); // Set extension manually
         $view->addData([
-            "fullBasePath" => "xxx",
-            "basePath" => $this->configService->basePath,
-            "applicationVersion" => $this->configService->appVersion
+            'fullBasePath' => 'xxx',
+            'basePath' => $this->configService->basePath . '/',
+            'applicationVersion' => $this->configService->appVersion
         ]);
         return $view;
     }

@@ -27,15 +27,15 @@ class MainController extends AbstractController {
     }
 
     public function main(ServerRequestInterface $request, array $args) {
-        $id = $args["id"];
+        $id = $args['id'];
         return $this->basicResponse(new Response(), '<h1>Main ID ' . $id . '</h1>');
     }
 
     public function page(ServerRequestInterface $request, array $args) {
         $data = [
-            "lang" => "de",
-            "title" => "No Framework",
-            "text" => "Attention: This is not a framework."
+            'lang' => 'de',
+            'title' => 'No Framework',
+            'text' => 'Attention: This is not a framework.'
         ];
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, $data));
     }
