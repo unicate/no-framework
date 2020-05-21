@@ -11,6 +11,8 @@ use League\Route\Router;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\Diactoros\ServerRequestFactory;
 use DI\Container;
+use nofw\middlewares\AuthMiddleware;
+use nofw\middlewares\CorsMiddleware;
 
 class RoutingService {
 
@@ -34,6 +36,10 @@ class RoutingService {
 
         $router = new Router();
         $router->setStrategy($strategy);
+        $router->middlewares([
+            new CorsMiddleware(),
+            new AuthMiddleware(),
+        ]);
 
         $routes = include(__DIR__ . '/../config/routes.php');
 
