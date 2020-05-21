@@ -30,6 +30,11 @@ return [
         'path' => '/api/info',
         'handler' => 'nofw\controllers\ApiController::info',
     ],
+    [
+        'method' => 'GET',
+        'path' => '/sorry',
+        'handler' => 'nofw\controllers\MainController::sorry',
+    ],
 ];
 
 

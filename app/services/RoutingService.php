@@ -3,6 +3,9 @@
 
 namespace nofw\services;
 
+use Laminas\Diactoros\Response;
+use Laminas\Diactoros\ResponseFactory;
+use League\Route\Http\Exception\NotFoundException;
 use League\Route\Strategy\ApplicationStrategy;
 use League\Route\Router;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
@@ -28,6 +31,7 @@ class RoutingService {
         );
         $strategy = new ApplicationStrategy();
         $strategy->setContainer($this->container);
+
         $router = new Router();
         $router->setStrategy($strategy);
 
@@ -36,8 +40,13 @@ class RoutingService {
         foreach ($routes as $route) {
             $router->addRoute($route['method'], $basePath . $route['path'], $route['handler']);
         }
-        $response = $router->dispatch($request);
-
+        try {
+            $response = $router->dispatch($request);
+        } catch (NotFoundException $exception) {
+            $response = (new ResponseFactory())->createResponse()
+                ->withHeader('Location', $basePath . '/sorry')
+                ->withStatus(301, 'Redirect');
+        }
         $emitter = new SapiEmitter();
         $emitter->emit($response);
 

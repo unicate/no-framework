@@ -32,11 +32,19 @@ class MainController extends AbstractController {
     }
 
     public function page(ServerRequestInterface $request, array $args) {
-        $data = [
-            'lang' => 'de',
+        $this->viewService->addData([
+            "lang" => 'de',
             'title' => 'No Framework',
             'text' => 'Attention: This is not a framework.'
-        ];
-        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, $data));
+        ]);
+        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
+    }
+
+    public function sorry(ServerRequestInterface $request, array $args) {
+        $this->viewService->addData([
+            "lang" => 'de',
+            "title" => 'Sorry'
+        ]);
+        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 }
