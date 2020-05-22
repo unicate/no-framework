@@ -1,19 +1,15 @@
 <?php
 
+declare(strict_types=1);
 
 namespace nofw\services;
 
-use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ResponseFactory;
 use League\Route\Http\Exception\NotFoundException;
 use League\Route\RouteGroup;
-use League\Route\Strategy\ApplicationStrategy;
 use League\Route\Router;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\Diactoros\ServerRequestFactory;
-use DI\Container;
-use nofw\middlewares\AuthMiddleware;
-use nofw\middlewares\CorsMiddleware;
 use nofw\core\NofwApp;
 use nofw\core\Constants;
 
@@ -25,11 +21,10 @@ class RoutingService {
     public function __construct(ConfigService $configService, Router $router) {
         $this->configService = $configService;
         $this->router = $router;
-        $this->route();
     }
 
-    private function route() {
-        $basePath = $this->configService->basePath;
+    public function route() {
+        $basePath = $this->configService->getBasePath();
 
         $request = ServerRequestFactory::fromGlobals(
             $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES

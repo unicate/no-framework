@@ -1,11 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace nofw\utils;
 
 use Firebase\JWT\JWT;
 
 class JWTHelper {
-
 
     /**
      * @see https://tools.ietf.org/html/rfc7519#section-4.1.1
@@ -15,7 +16,7 @@ class JWTHelper {
      * @return type
      * @throws \Exception
      */
-    public static function getToken($secret, $scopes, $user) {
+    public static function getToken($secret, $scopes, $user): string {
         $now = new \DateTime();
         $future = new \DateTime("now +1 hour");
 
@@ -28,19 +29,17 @@ class JWTHelper {
             "scope" => $scopes
         ];
 
-        $token = JWT::encode($payload, $secret, "HS256");
-
-        return $token;
+        return JWT::encode($payload, $secret, "HS256");
     }
 
-    public static function setTokenCookie($secret, $scopes, $user) {
+    public static function setTokenCookie($secret, $scopes, $user): string {
         $token = self::getToken($secret, $scopes, $user);
         //setcookie(name, value, expire, path, domain, secure, httponly);
         setcookie("token", $token, 0, "/", "", false, true);
         return $token;
     }
 
-    public static function getTokenPayload() {
+    public static function getTokenPayload() : array {
         $token = $_COOKIE["token"];
         $payload = explode(".", $token)[1];
         $payload = JWT::urlsafeB64Decode($payload);
@@ -48,7 +47,7 @@ class JWTHelper {
         return get_object_vars($payload);
     }
 
-    public static function deleteTokenCookie() {
+    public static function deleteTokenCookie() : bool {
         return setcookie("token", "", time() - 3600, "/", "", false, true);
     }
 

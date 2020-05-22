@@ -1,40 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
 namespace nofw\core;
 
 use DI\Container;
-use DI\ContainerBuilder;
 use League\Route\Router;
 use League\Route\Strategy\ApplicationStrategy;
-use nofw\core\Constants;
 use nofw\middlewares\AuthMiddleware;
 use nofw\middlewares\CorsMiddleware;
 use nofw\services\RoutingService;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Tuupola\Middleware\JwtAuthentication;
 
 class Main {
 
     public function __construct() {
-        //$container = new Container();
-
-        $containerBuilder = new ContainerBuilder();
-        $containerBuilder->addDefinitions(__DIR__ . '/../config/dependencies.php');
-        $container = $containerBuilder->build();
-
+        // Setup DI Container
+        $container = new Container();
         $strategy = new ApplicationStrategy();
         $strategy->setContainer($container);
 
+        // Init Router
         $router = $container->get(Router::class);
         $router->setStrategy($strategy);
 
+        // Add Middewares
         $router->middlewares([
             $container->get(CorsMiddleware::class),
-            $container->get(AuthMiddleware::class)->getInstance(),
+            $container->get(AuthMiddleware::class)->jwt(),
         ]);
 
-        $container->get(RoutingService::class);
+        // Start routing
+        $container->call([RoutingService::class, 'route'], []);
     }
 
 }

@@ -1,33 +1,27 @@
 <?php
 
+declare(strict_types=1);
+
 namespace nofw\services;
 
-use nofw\services\ConfigService;
 use League\Plates\Engine;
+use nofw\core\Constants;
 
 class ViewService {
 
-    private $configService;
     private $engine;
 
     function __construct(ConfigService $configService) {
-        $this->configService = $configService;
         $this->engine = new Engine();
-        $this->engine->setDirectory(__DIR__ . '/../pages');
-        $this->engine->setFileExtension('php'); // Set extension manually
+        $this->engine->setDirectory(Constants::VIEWS_DIR);
+        $this->engine->setFileExtension('php');
         $this->engine->addData([
-            'fullBasePath' => 'xxx',
-            'basePath' => $this->configService->basePath . '/',
-            'applicationVersion' => $this->configService->appVersion
+            'basePath' => $configService->getBasePath() . '/',
+            'applicationVersion' => $configService->getAppVersion()
         ]);
     }
 
-
-    public function getEngine() {
-        return $this->engine;
-    }
-
-    public function renderPage(string $pageName, array $data) {
+    public function renderPage(string $pageName, array $data): string {
         return $this->engine->render($pageName, $data);
     }
 

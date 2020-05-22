@@ -12,18 +12,18 @@ return [
     ],
     [
         'method' => 'GET',
-        'path' => '/main/{id}',
-        'handler' => 'nofw\controllers\PageController::main'
-    ],
-    [
-        'method' => 'GET',
-        'path' => '/page',
-        'handler' => 'nofw\controllers\PageController::page'
+        'path' => '/param/{id}',
+        'handler' => 'nofw\controllers\PageController::param'
     ],
     [
         'method' => 'GET',
         'path' => '/login',
         'handler' => 'nofw\controllers\PageController::login'
+    ],
+    [
+        'method' => 'GET',
+        'path' => '/logout',
+        'handler' => 'nofw\controllers\PageController::logout'
     ],
     [
         'method' => 'GET',

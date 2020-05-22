@@ -1,31 +1,28 @@
 <?php
 
+declare(strict_types=1);
 
 namespace nofw\middlewares;
 
 use nofw\services\ConfigService;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
-use Psr\Http\Server\RequestHandlerInterface;
 use Tuupola\Middleware\JwtAuthentication;
 
 
 class AuthMiddleware {
 
-    private $configService;
-    private $auth;
+    private $jwt;
 
     public function __construct(ConfigService $configService) {
-        $basePath = $configService->basePath;
-        $this->auth = new JwtAuthentication([
+        $basePath = $configService->getBasePath();
+        $this->jwt = new JwtAuthentication([
             "path" => $basePath . "/api",
             "ignore" => [
                 $basePath . "/api/info"
             ],
-            "secret" => 'somesecret',
+            "secret" => $configService->getAppSecret(),
             "attribute" => true,
             "relaxed" => ["127.0.0.1", "localhost", "unicate.local", "silver.local"],
             "error" => function (Response $response) use ($basePath) {
@@ -36,17 +33,14 @@ class AuthMiddleware {
                 return $request->withAttribute("authenticated", "true");
             },
             "after" => function ($response, $arguments) {
-                return $response->withHeader("X-AUTH", "authenticated");
+                return $response->withHeader("X-AUTH", "authenticated=true");
             }
         ]);
     }
 
 
-    /**
-     * @return mixed
-     */
-    public function getInstance() {
-        return $this->auth;
+    public function jwt(): MiddlewareInterface {
+        return $this->jwt;
     }
 
 }
