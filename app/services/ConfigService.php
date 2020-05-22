@@ -3,6 +3,7 @@
 
 namespace nofw\services;
 
+use nofw\core\Constants;
 
 class ConfigService {
 
@@ -13,7 +14,7 @@ class ConfigService {
     public $dbPassword;
 
     public function __construct() {
-        $config = include(__DIR__ . '/../config/config.php');
+        $config = require_once Constants::CONFIG_FILE;
 
         $this->appVersion = $config['APP_VERSION'];
         $this->basePath = $config['BASE_PATH'];

@@ -3,38 +3,43 @@ return [
     [
         'method' => 'GET',
         'path' => '/',
-        'handler' => 'nofw\controllers\MainController::index',
+        'handler' => 'nofw\controllers\PageController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/info',
-        'handler' => 'nofw\controllers\MainController::info',
+        'handler' => 'nofw\controllers\PageController::info'
     ],
     [
         'method' => 'GET',
         'path' => '/main/{id}',
-        'handler' => 'nofw\controllers\MainController::main',
+        'handler' => 'nofw\controllers\PageController::main'
     ],
     [
         'method' => 'GET',
         'path' => '/page',
-        'handler' => 'nofw\controllers\MainController::page',
+        'handler' => 'nofw\controllers\PageController::page'
+    ],
+    [
+        'method' => 'GET',
+        'path' => '/login',
+        'handler' => 'nofw\controllers\PageController::login'
     ],
     [
         'method' => 'GET',
         'path' => '/api',
-        'handler' => 'nofw\controllers\ApiController::index',
+        'handler' => 'nofw\controllers\ApiController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/api/info',
-        'handler' => 'nofw\controllers\ApiController::info',
+        'handler' => 'nofw\controllers\ApiController::info'
     ],
     [
         'method' => 'GET',
         'path' => '/sorry',
-        'handler' => 'nofw\controllers\MainController::sorry',
-    ],
+        'handler' => 'nofw\controllers\PageController::sorry'
+    ]
 ];
 
 

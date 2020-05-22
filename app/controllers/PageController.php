@@ -7,9 +7,10 @@ use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 use nofw\services\DatabaseService;
 use nofw\services\ViewService;
+use nofw\utils\JWTHelper;
 
 
-class MainController extends AbstractController {
+class PageController extends AbstractController {
     private $dbService;
     private $viewService;
 
@@ -36,6 +37,18 @@ class MainController extends AbstractController {
             "lang" => 'de',
             'title' => 'No Framework',
             'text' => 'Attention: This is not a framework.'
+        ]);
+        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
+    }
+
+    public function login(ServerRequestInterface $request, array $args) {
+
+        JWTHelper::setTokenCookie('somesecret', [], 'raoul@bla.com');
+
+        $this->viewService->addData([
+            "lang" => 'de',
+            'title' => 'Login',
+            'text' => 'Congratulations you are logged in.'
         ]);
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }

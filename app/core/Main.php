@@ -3,47 +3,38 @@
 namespace nofw\core;
 
 use DI\Container;
+use DI\ContainerBuilder;
 use League\Route\Router;
 use League\Route\Strategy\ApplicationStrategy;
+use nofw\core\Constants;
 use nofw\middlewares\AuthMiddleware;
 use nofw\middlewares\CorsMiddleware;
 use nofw\services\RoutingService;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Tuupola\Middleware\JwtAuthentication;
 
 class Main {
-    private $container;
-    private $router;
 
     public function __construct() {
-        $this->container = new Container();
-        //$this->router = new Router();
-        //$routingService = $this->container->get(RoutingService::class);
-        //$this->container->set('router', \DI\create(Router::class));
-        //$this->container->set('routingService', \DI\create(RoutingService::class)->constructor($this->router));
-        $this->router = $this->container->get(Router::class);
+        //$container = new Container();
 
-        $this->setupRouter();
-        $this->setupMiddleware();
+        $containerBuilder = new ContainerBuilder();
+        $containerBuilder->addDefinitions(__DIR__ . '/../config/dependencies.php');
+        $container = $containerBuilder->build();
 
-        $this->container->get(RoutingService::class);
-
-    }
-
-    private function setupRouter() {
         $strategy = new ApplicationStrategy();
-        $strategy->setContainer($this->container);
-        $this->router->setStrategy($strategy);
+        $strategy->setContainer($container);
 
-        //new RoutingService($this->router);
-        //$this->container->call('routingService');
-        //$this->container->get('routingService');
+        $router = $container->get(Router::class);
+        $router->setStrategy($strategy);
 
-    }
-
-    private function setupMiddleware() {
-        $this->router->middlewares([
-            new CorsMiddleware(),
-            new AuthMiddleware()
+        $router->middlewares([
+            $container->get(CorsMiddleware::class),
+            $container->get(AuthMiddleware::class)->getInstance(),
         ]);
+
+        $container->get(RoutingService::class);
     }
 
 }

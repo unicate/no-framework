@@ -6,6 +6,7 @@ namespace nofw\services;
 use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ResponseFactory;
 use League\Route\Http\Exception\NotFoundException;
+use League\Route\RouteGroup;
 use League\Route\Strategy\ApplicationStrategy;
 use League\Route\Router;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
@@ -14,29 +15,34 @@ use DI\Container;
 use nofw\middlewares\AuthMiddleware;
 use nofw\middlewares\CorsMiddleware;
 use nofw\core\NofwApp;
+use nofw\core\Constants;
 
 class RoutingService {
 
     private $configService;
     private $router;
 
-    public function __construct(Router $router) {
-        //$this->configService = $configService;
+    public function __construct(ConfigService $configService, Router $router) {
+        $this->configService = $configService;
         $this->router = $router;
         $this->route();
     }
 
     private function route() {
-        $basePath = '/unicate/no-framework/public';//$this->configService->basePath;
+        $basePath = $this->configService->basePath;
 
         $request = ServerRequestFactory::fromGlobals(
             $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES
         );
-        $routes = include(__DIR__ . '/../config/routes.php');
 
+        $routes = require_once(Constants::ROUTING_FILE);
         foreach ($routes as $route) {
-            $this->router->addRoute($route['method'], $basePath . $route['path'], $route['handler']);
+            $this->router->map($route['method'], $basePath . $route['path'], $route['handler']);
         }
+        $this->router->group($basePath, function (RouteGroup $group) {
+            //$group->map('GET', '/', 'nofw\controllers\PageController::index');
+        });
+
         try {
             $response = $this->router->dispatch($request);
         } catch (NotFoundException $exception) {
