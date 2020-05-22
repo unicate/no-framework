@@ -21,5 +21,9 @@
 
 <?= $this->section('content') ?>
 
+<p>
+    <a href="<?= $this->e($basePath) ?>">Back</a>
+</p>
+
 </body>
 </html>

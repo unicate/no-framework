@@ -34,12 +34,14 @@ class PageController extends AbstractController {
     }
 
     public function info(ServerRequestInterface $request, array $args): ResponseInterface {
-        return $this->basicResponse(new Response(), '<h1>DB Version ' . $this->dbService->info()['version'] . '</h1>');
+        $info = print_r($this->dbService->info(), true);
+        return $this->basicResponse(new Response(), "<h1>Info</h1><pre>$info</pre>");
     }
 
     public function param(ServerRequestInterface $request, array $args): ResponseInterface {
         $id = $args['id'];
-        return $this->basicResponse(new Response(), '<h1>Param is "' . $id . '"</h1>');
+        $newParam = 'new-random-param-' . rand(0, 999);
+        return $this->basicResponse(new Response(), "<h1>Param</h1><p>The param is \"$id\".</p><p><a href='$newParam'>Try random param instead</a>.</p>");
     }
 
 

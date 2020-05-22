@@ -22,17 +22,18 @@ class AuthMiddleware {
 
     public function jwt(): MiddlewareInterface {
         $basePath = $this->configService->getBasePath();
+        $appSecret = $this->configService->getAppSecret();
         return new JwtAuthentication([
 
-            "path" => $this->basePath . "/api",
+            "path" => $basePath . "/api",
             "ignore" => [
                 $basePath . "/api/info"
             ],
-            "secret" => $this->configService->getAppSecret(),
+            "secret" => $appSecret,
             "attribute" => true,
             "relaxed" => ["127.0.0.1", "localhost", "unicate.local", "silver.local"],
             "error" => function (Response $response) use ($basePath) {
-                $response->getBody()->write("Unauthorized: <a href='" . $basePath . "/login'>Login</a>");
+                $response->getBody()->write("<h1>401 Not authorized</h1><p><a href='$basePath/login'>Login</a></p>");
                 return $response->withStatus(401);
             },
             "before" => function (Request $request, $arguments) {
