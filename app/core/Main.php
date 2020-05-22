@@ -23,7 +23,7 @@ class Main {
         $router = $container->get(Router::class);
         $router->setStrategy($strategy);
 
-        // Add Middewares
+        // Add Middlewares
         $router->middlewares([
             $container->get(CorsMiddleware::class),
             $container->get(AuthMiddleware::class)->jwt(),

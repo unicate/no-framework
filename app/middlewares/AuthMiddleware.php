@@ -13,16 +13,22 @@ use Tuupola\Middleware\JwtAuthentication;
 
 class AuthMiddleware {
 
-    private $jwt;
+    private $configService;
+
 
     public function __construct(ConfigService $configService) {
-        $basePath = $configService->getBasePath();
-        $this->jwt = new JwtAuthentication([
-            "path" => $basePath . "/api",
+        $this->configService = $configService;
+    }
+
+    public function jwt(): MiddlewareInterface {
+        $basePath = $this->configService->getBasePath();
+        return new JwtAuthentication([
+
+            "path" => $this->basePath . "/api",
             "ignore" => [
                 $basePath . "/api/info"
             ],
-            "secret" => $configService->getAppSecret(),
+            "secret" => $this->configService->getAppSecret(),
             "attribute" => true,
             "relaxed" => ["127.0.0.1", "localhost", "unicate.local", "silver.local"],
             "error" => function (Response $response) use ($basePath) {
@@ -36,11 +42,6 @@ class AuthMiddleware {
                 return $response->withHeader("X-AUTH", "authenticated=true");
             }
         ]);
-    }
-
-
-    public function jwt(): MiddlewareInterface {
-        return $this->jwt;
     }
 
 }
