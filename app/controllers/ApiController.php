@@ -40,5 +40,13 @@ class ApiController extends AbstractController {
         return $this->jsonResponse(new Response(), $data);
     }
 
+    public function poster(ServerRequestInterface $request, array $args): ResponseInterface {
+        $data['aaa'] = 'aaa';
+        $data['bbb'] = 'bbb';
+        $data['form'] = $request->getParsedBody()['key1'];
+        $data['param'] = $request->getQueryParams()['key1'];
+        return $this->jsonResponse(new Response(), $data);
+    }
+
 
 }

@@ -30,7 +30,7 @@ class AuthMiddleware {
                 $basePath . "/api/info"
             ],
             "secret" => $appSecret,
-            "attribute" => true,
+            "attribute" => 'jwt',
             "relaxed" => ["127.0.0.1", "localhost", "unicate.local", "silver.local"],
             "error" => function (Response $response) use ($basePath) {
                 $response->getBody()->write("<h1>401 Not authorized</h1><p><a href='$basePath/login'>Login</a></p>");

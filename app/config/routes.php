@@ -36,9 +36,9 @@ return [
         'handler' => 'nofw\controllers\ApiController::info'
     ],
     [
-        'method' => 'GET',
-        'path' => '/sorry',
-        'handler' => 'nofw\controllers\PageController::sorry'
+        'method' => 'POST',
+        'path' => '/api/poster',
+        'handler' => 'nofw\controllers\ApiController::poster'
     ]
 ];
 

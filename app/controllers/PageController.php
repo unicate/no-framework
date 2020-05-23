@@ -79,11 +79,4 @@ class PageController extends AbstractController {
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 
-    public function sorry(ServerRequestInterface $request, array $args): ResponseInterface {
-        $this->viewService->addData([
-            "lang" => 'de',
-            "title" => 'Sorry'
-        ]);
-        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
-    }
 }

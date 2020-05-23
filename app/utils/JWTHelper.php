@@ -21,10 +21,10 @@ class JWTHelper {
         $future = new \DateTime("now +1 hour");
 
         $payload = [
-            "iss" => "localhost",
+            "iss" => "nofw",
             "iat" => $now->getTimeStamp(),
             "exp" => $future->getTimeStamp(),
-            "jti" => md5("someString-" . $now->getTimeStamp()),
+            "jti" => md5("nofw-" . $now->getTimeStamp()),
             "sub" => $user,
             "scope" => $scopes
         ];
