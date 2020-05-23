@@ -15,6 +15,7 @@ class LogService implements LoggerInterface {
     private $configService;
     private $logLevel;
     private $supportedLogLevels;
+    private $archived;
 
     function __construct(ConfigService $configService) {
         $this->configService = $configService;
@@ -83,7 +84,7 @@ class LogService implements LoggerInterface {
         return $callerLogLevelInt <= $currentLogLevelInt;
     }
 
-    function interpolate($message, array $context = array()) {
+    function interpolate($message, array $context = array()): string {
         // build a replacement array with braces around the context keys
         $replace = array();
         foreach ($context as $key => $val) {
@@ -99,7 +100,7 @@ class LogService implements LoggerInterface {
 
     public function log($level, $message, array $context = array()) {
         $dateTime = (new \DateTimeImmutable('now'))->format('Y-m-d H:i:s.u');
-        $fileName = (new \DateTimeImmutable('now'))->format('Y-m-d') . '_nofw_log.txt';
+        $logFileName = (new \DateTimeImmutable('now'))->format('Y-m-d') . '_nofw_log.txt';
         $message = $this->interpolate($message, $context);
         $logEntry = '' .
             $dateTime . ' ' .
@@ -107,12 +108,28 @@ class LogService implements LoggerInterface {
             $this->interpolate($message, $context) . ' ' .
             PHP_EOL;
         try {
-            $fh = fopen(Constants::LOGS_DIR . '/' . $fileName, 'a');
+            $fh = fopen(Constants::LOGS_DIR . '/' . $logFileName, 'a');
             fwrite($fh, $logEntry);
             fclose($fh);
+            $this->archiveLog($logFileName);
         } catch (\Throwable $e) {
             throw new \RuntimeException("Could not open logs file!", 0, $e);
         }
+    }
+
+    private function archiveLog ($logFileName) {
+        if ($this->archived == true) {
+            return;
+        }
+        $files = array_diff(scandir(Constants::LOGS_DIR), array('..', '.'));
+        foreach ($files as $file) {
+            $filePath = Constants::LOGS_DIR . '/' . $file;
+            if (!is_dir($filePath) && $file !== $logFileName) {
+                rename($filePath, Constants::LOGS_DIR . '/archive/'. $file);
+            }
+            $this->archived = true;
+        }
+
     }
 
 }

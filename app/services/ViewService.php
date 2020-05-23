@@ -16,7 +16,7 @@ class ViewService {
         $this->engine->setDirectory(Constants::VIEWS_DIR);
         $this->engine->setFileExtension('php');
         $this->engine->addData([
-            'basePath' => $configService->getBasePath() . '/',
+            'basePath' => $configService->getBasePath(),
             'applicationVersion' => $configService->getAppVersion()
         ]);
     }

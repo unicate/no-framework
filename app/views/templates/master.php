@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <base href="<?= $this->e($basePath) ?>"/>
+    <base href="<?= $this->e(rtrim($basePath, '/') . '/') ?>"/>
     <link rel="author" href="humans.txt">
     <link rel="icon" href="favicon.ico">
     <link rel="canonical" href="">
