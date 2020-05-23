@@ -34,15 +34,21 @@ class PageController extends AbstractController {
             'title' => 'Welcome!',
             'text' => 'Attention: This is not a framework.'
         ]);
-        $this->logService->info('test loggin some info stuff', []);
-        $this->logService->debug('test some very detailed debug log', []);
-        $this->logService->warning('test just a warning', []);
-        $this->logService->critical('test wow a critical log entry... never seen before', []);
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 
     public function info(ServerRequestInterface $request, array $args): ResponseInterface {
         $info = print_r($this->dbService->info(), true);
+
+        $this->logService->debug('test some very detailed debug log {data}', ['data' => '...some data...']);
+        $this->logService->info('test loggin some info {kind} stuff', ['kind' => 'crazy']);
+        $this->logService->notice('Just for your notification.', []);
+        $this->logService->warning('Just be warned', []);
+        $this->logService->error('some error: {exception}', ['exception' => 'stack trace...']);
+        $this->logService->critical('A mission critical log entry!', ['exception' => new \RuntimeException('ohhh a runtime exception!')]);
+        $this->logService->alert('Aleeeerrrrtt', []);
+        $this->logService->emergency('Its an Emergency', []);
+
         return $this->basicResponse(new Response(), "<h1>Info</h1><pre>$info</pre>");
     }
 

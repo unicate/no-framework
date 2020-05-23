@@ -5,7 +5,7 @@ return [
 
     // Application Log Level
     // Psr\Log\LogLevel : emergency, alert, critical, error, warning, notice, info, debug
-    'APP_LOG_LEVEL' => 'info',
+    'APP_LOG_LEVEL' => 'debug',
 
     // JWT Secret (do not publish)
     'APP_SECRET' => '4095843ur9fj039z3249',
