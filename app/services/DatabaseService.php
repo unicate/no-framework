@@ -12,15 +12,16 @@ class DatabaseService {
     private $connection;
 
     public function __construct(ConfigService $configService) {
+
         $this->connection = new Medoo([
             'database_type' => 'mysql',
-            'server' => 'localhost',
+            'server' => $configService->getDbHost(),
+            'port' => $configService->getDbPort(),
             'database_name' => $configService->getDbName(),
             'username' => $configService->getDbUser(),
             'password' => $configService->getDbPassword(),
             'charset' => 'utf8',
             "logging" => true,
-            // 'port' => 8889,
             'prefix' => 'wy_',
             'option' => [
                 PDO::ATTR_CASE => PDO::CASE_NATURAL
@@ -28,8 +29,12 @@ class DatabaseService {
         ]);
     }
 
-    public function info() : array {
-        return $this->connection->info();
+    public function getConnection() : Medoo{
+        return $this->connection;
+    }
+
+    public function info(): array {
+        return $this->getConnection()->info();
     }
 
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace nofw\controllers;
 
 use nofw\services\ConfigService;
+use nofw\services\LogService;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -17,11 +18,14 @@ class PageController extends AbstractController {
     private $configService;
     private $dbService;
     private $viewService;
+    private $logService;
 
-    public function __construct(ConfigService $configService, DatabaseService $dbService, ViewService $viewService) {
+    public function __construct(ConfigService $configService, DatabaseService $dbService,
+                                ViewService $viewService, LogService $logService) {
         $this->configService = $configService;
         $this->dbService = $dbService;
         $this->viewService = $viewService;
+        $this->logService = $logService;
     }
 
     public function index(ServerRequestInterface $request, array $args): ResponseInterface {
@@ -30,6 +34,10 @@ class PageController extends AbstractController {
             'title' => 'Welcome!',
             'text' => 'Attention: This is not a framework.'
         ]);
+        $this->logService->info('test loggin some info stuff', []);
+        $this->logService->debug('test some very detailed debug log', []);
+        $this->logService->warning('test just a warning', []);
+        $this->logService->critical('test wow a critical log entry... never seen before', []);
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 

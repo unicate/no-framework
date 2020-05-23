@@ -36,7 +36,7 @@ class ApiController extends AbstractController {
         $data['application']['php_version'] = phpversion();
         $data['application']['server_software'] = $_SERVER['SERVER_SOFTWARE'];
         $data['application']['script_name'] = $_SERVER['SCRIPT_NAME'];
-        $data['application']['redirect_url'] = $_SERVER['REDIRECT_URL'];
+        $data['application']['script_dir'] = dirname($_SERVER['SCRIPT_NAME']);
         return $this->jsonResponse(new Response(), $data);
     }
 
