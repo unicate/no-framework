@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace nofw\services;
 
 use nofw\core\Constants;
-use Psr\Http\Message\ServerRequestInterface;
 
 class TranslationService {
 
