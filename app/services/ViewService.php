@@ -6,6 +6,7 @@ namespace nofw\services;
 
 use League\Plates\Engine;
 use nofw\core\Constants;
+use nofw\utils\LangHelper;
 
 class ViewService {
 
@@ -33,15 +34,8 @@ class ViewService {
         $this->engine->addData($data);
     }
 
-    public function translate($token): string {
-        $data = $this->engine->getData();
-        if (array_key_exists('lang', $data)) {
-            $lang = $data['lang'];
-        } else if (array_key_exists('language', $data)) {
-            $lang = $data['language'];
-        } else {
-            $lang = Constants::DEFAULT_LANG;
-        }
+    public function translate($token, $lang = null): string {
+        $lang =  (isset($lang)) ? $lang : LangHelper::getLang();
         return $this->translationService->translate($token, $lang);
     }
 
