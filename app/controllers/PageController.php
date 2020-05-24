@@ -31,9 +31,9 @@ class PageController extends AbstractController {
     }
 
     public function index(ServerRequestInterface $request, array $args): ResponseInterface {
-        $this->viewService->addData([
-            "lang" => LangHelper::getLang()
-        ]);
+        LangHelper::setLangCookie('fr');
+        $this->viewService->addData(["lang" => LangHelper::getLang(), 'title'=>'Index']);
+
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 

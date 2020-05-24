@@ -5,6 +5,7 @@ namespace nofw\core;
 
 class Constants {
 
+    const AVAILABLE_LANG = ['en', 'de', 'fr'];
     const DEFAULT_LANG = 'en';
     const CONFIG_FILE = __DIR__ . "/../config/config.php";
     const TRANSLATION_FILE = __DIR__ . "/../config/translation.php";

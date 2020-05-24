@@ -12,7 +12,12 @@ return [
     ],
     [
         'method' => 'GET',
-        'path' => '/de/index',
+        'path' => '/en',
+        'handler' => 'nofw\controllers\PageController::index'
+    ],
+    [
+        'method' => 'GET',
+        'path' => '/{lang}/index',
         'handler' => 'nofw\controllers\PageController::index'
     ],
     [

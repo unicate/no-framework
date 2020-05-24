@@ -13,6 +13,13 @@ return [
         'index.title' => 'Hallo, hallo, nimm platz!',
         'index.text' => 'Achtung: Das ist kein Framework!',
     ],
+
+    // German Translation
+    'fr' =>  [
+        'html.lang' => 'fr',
+        'index.title' => 'Bonjour',
+        'index.text' => 'Attention: C\'est ne pas un Framework!',
+    ],
 ];
 
 
