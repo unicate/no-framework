@@ -6,6 +6,7 @@ namespace nofw\controllers;
 
 use nofw\services\ConfigService;
 use nofw\services\LogService;
+use nofw\utils\LangHelper;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -26,13 +27,12 @@ class PageController extends AbstractController {
         $this->dbService = $dbService;
         $this->viewService = $viewService;
         $this->logService = $logService;
+
     }
 
     public function index(ServerRequestInterface $request, array $args): ResponseInterface {
         $this->viewService->addData([
-            "lang" => 'de',
-            'title' => 'Welcome!',
-            'text' => 'Attention: This is not a framework.'
+            "lang" => LangHelper::getLang()
         ]);
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }

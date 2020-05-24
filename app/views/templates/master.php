@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="<?= $this->e($lang) ?>">
+<html lang="<?= $this->tlt('html.lang') ?>">
 <head>
     <title><?= $this->e($title) ?></title>
     <meta charset="utf-8">

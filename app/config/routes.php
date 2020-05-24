@@ -7,6 +7,16 @@ return [
     ],
     [
         'method' => 'GET',
+        'path' => '/de',
+        'handler' => 'nofw\controllers\PageController::index'
+    ],
+    [
+        'method' => 'GET',
+        'path' => '/de/index',
+        'handler' => 'nofw\controllers\PageController::index'
+    ],
+    [
+        'method' => 'GET',
         'path' => '/info',
         'handler' => 'nofw\controllers\PageController::info'
     ],

@@ -3,7 +3,7 @@ $data = [];
 $this->layout('templates/master', $data);
 ?>
 <div>
-    <h1><?= $this->e($title) ?></h1>
+    <h1><?= $this->tlt('index.title') ?></h1>
     <p><?= $this->e($text) ?></p>
     <ul>
         <li><a href="login">Login</a> / <a href="logout">Logout</a></li>
