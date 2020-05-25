@@ -6,6 +6,7 @@ namespace nofw\controllers;
 
 use nofw\services\ConfigService;
 use nofw\services\LogService;
+use nofw\services\TranslationService;
 use nofw\utils\LangHelper;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
@@ -19,23 +20,22 @@ class PageController extends AbstractController {
     private $configService;
     private $dbService;
     private $viewService;
+    private $translationService;
     private $logService;
 
-    public function __construct(ConfigService $configService, DatabaseService $dbService,
-                                ViewService $viewService, LogService $logService) {
+    public function __construct(ConfigService $configService,
+                                DatabaseService $dbService,
+                                ViewService $viewService,
+                                TranslationService $translationService,
+                                LogService $logService) {
         $this->configService = $configService;
         $this->dbService = $dbService;
         $this->viewService = $viewService;
+        $this->translationService = $translationService;
         $this->logService = $logService;
-
     }
 
     public function index(ServerRequestInterface $request, array $args): ResponseInterface {
-        //LangHelper::setLangCookie('fr');
-        $this->viewService->addData([
-            'title'=>$this->viewService->translate('head.title')
-        ]);
-
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 
@@ -63,21 +63,11 @@ class PageController extends AbstractController {
 
     public function login(ServerRequestInterface $request, array $args): ResponseInterface {
         JWTHelper::setTokenCookie($this->configService->getAppSecret(), [], 'raoul@bla.com');
-        $this->viewService->addData([
-            "lang" => 'de',
-            'title' => 'Login',
-            'text' => 'Congratulations you are logged in.'
-        ]);
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 
     public function logout(ServerRequestInterface $request, array $args): ResponseInterface {
         JWTHelper::deleteTokenCookie();
-        $this->viewService->addData([
-            "lang" => 'de',
-            'title' => 'Logout',
-            'text' => 'You are logged out!'
-        ]);
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 

@@ -17,7 +17,7 @@ return [
     ],
     [
         'method' => 'GET',
-        'path' => '/{lang}/index',
+        'path' => '/{lang}/de/index',
         'handler' => 'nofw\controllers\PageController::index'
     ],
     [

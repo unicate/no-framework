@@ -1,5 +1,5 @@
 <?php
-$data = [];
+$data = ['head_title'=> $this->tlt('index.head.title')];
 $this->layout('templates/master', $data);
 ?>
 <div>

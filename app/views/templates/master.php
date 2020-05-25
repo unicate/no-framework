@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="<?= $this->tlt('html.lang') ?>">
 <head>
-    <title><?= $this->tlt('head.title') ?></title>
+    <title><?= $this->e($head_title) ?></title>
     <meta charset="utf-8">
     <meta name="robots" content="index, follow"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
