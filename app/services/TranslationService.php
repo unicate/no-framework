@@ -22,14 +22,22 @@ class TranslationService {
         $request = ServerRequestFactory::fromGlobals(
             $_SERVER, $_GET, $_COOKIE
         );
-        $uriPath = $request->getUri()->getPath();
-        $cookie = $request->getCookieParams();
-        $queryParam = $request->getQueryParams();
 
         // Set the default language. If no other rule matches, this one wins.
         $lang = Constants::DEFAULT_LANG;
 
+        // Try to get Language from Accept-Language Header
+        $header = $request->getHeader('accept-language');
+        if (!empty($header)) {
+            $acceptFromHttp = \Locale::acceptFromHttp($header[0]);
+            $headerLang = explode('_', $acceptFromHttp)[0];
+            if (in_array($headerLang, Constants::AVAILABLE_LANG)) {
+                $lang = $headerLang;
+            }
+        }
+
         // Check if any part of the URL matches an available language.
+        $uriPath = $request->getUri()->getPath();
         $uriArray = explode('/', $uriPath);
         $langArray = array_intersect($uriArray, Constants::AVAILABLE_LANG);
         if (!empty($langArray)) {
@@ -37,11 +45,13 @@ class TranslationService {
         }
 
         // Check if there is a 'lang' query param.
+        $queryParam = $request->getQueryParams();
         if (array_key_exists('lang', $queryParam)) {
             $lang = $queryParam['lang'];
         }
 
         // Check if 'lang' cookie was set
+        $cookie = $request->getCookieParams();
         if (isset($cookie["lang"])) {
             $lang = $cookie["lang"];
         }

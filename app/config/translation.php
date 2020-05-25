@@ -27,11 +27,11 @@ return [
         // Login
         'login.head.title' => 'Login EN',
         'login.title' => 'Login',
-        'login.text' => 'Congratulations, you are logged in.',
+        'login.text' => 'Gratuliere, du bist eingeloggt..',
         // logout
         'logout.head.title' => 'Logout EN',
         'logout.title' => 'Logout',
-        'logout.text' => 'Bye, bye... you are logged out!',
+        'logout.text' => 'Tschüss!',
     ],
 
     // German Translation
