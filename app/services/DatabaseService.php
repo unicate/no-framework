@@ -6,12 +6,13 @@ namespace nofw\services;
 
 use Medoo\Medoo;
 use PDO;
+use nofw\core\Config;
 
 class DatabaseService {
 
     private $connection;
 
-    public function __construct(ConfigService $configService) {
+    public function __construct(Config $configService) {
 
         $this->connection = new Medoo([
             'database_type' => 'mysql',

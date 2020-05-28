@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace nofw\middlewares;
 
-use nofw\services\ConfigService;
+use nofw\core\Config;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface;
@@ -16,13 +16,13 @@ class AuthMiddleware {
     private $configService;
 
 
-    public function __construct(ConfigService $configService) {
+    public function __construct(Config $configService) {
         $this->configService = $configService;
     }
 
     public function jwt(): MiddlewareInterface {
         $basePath = $this->configService->getBasePath();
-        $appSecret = $this->configService->getAppSecret();
+        $appSecret = $this->configService->getApiKey();
         return new JwtAuthentication([
 
             "path" => $basePath . "/api",

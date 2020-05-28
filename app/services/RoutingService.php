@@ -13,13 +13,14 @@ use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\Diactoros\ServerRequestFactory;
 use nofw\core\NofwApp;
 use nofw\core\Constants;
+use nofw\core\Config;
 
 class RoutingService {
 
     private $configService;
     private $router;
 
-    public function __construct(ConfigService $configService, Router $router) {
+    public function __construct(Config $configService, Router $router) {
         $this->configService = $configService;
         $this->router = $router;
     }

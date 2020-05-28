@@ -9,13 +9,13 @@ use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 
 use Psr\Http\Message\ResponseInterface;
-use nofw\services\ConfigService;
+use nofw\core\Config;
 
 class ApiController extends AbstractController {
     private $configService;
     private $dbService;
 
-    public function __construct(ConfigService $configService, DatabaseService $dbService) {
+    public function __construct(Config $configService, DatabaseService $dbService) {
         $this->configService = $configService;
         $this->dbService = $dbService;
     }

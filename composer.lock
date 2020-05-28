@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d01673907fff44363a576928cc92865",
+    "content-hash": "5338419c8199be109ccc61d7f63ac5fa",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -1046,6 +1046,63 @@
             "time": "2020-03-23T09:12:05+00:00"
         },
         {
+            "name": "symfony/dotenv",
+            "version": "v5.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dotenv.git",
+                "reference": "28658ee990ea643c8111bac242d6ee5f3a15ef72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/28658ee990ea643c8111bac242d6ee5f3a15ef72",
+                "reference": "28658ee990ea643c8111bac242d6ee5f3a15ef72",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "symfony/process": "^4.4|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Dotenv\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Registers environment variables from a .env file",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2020-03-27T16:56:45+00:00"
+        },
+        {
             "name": "symfony/polyfill-php56",
             "version": "v1.17.0",
             "source": {
@@ -1329,6 +1386,116 @@
                 "psr-7"
             ],
             "time": "2019-07-01T08:28:35+00:00"
+        },
+        {
+            "name": "unicate/language-detection",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicate/language-detection.git",
+                "reference": "3eea74a722a63bbcf32c9d6e056de540e9582780"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicate/language-detection/zipball/3eea74a722a63bbcf32c9d6e056de540e9582780",
+                "reference": "3eea74a722a63bbcf32c9d6e056de540e9582780",
+                "shasum": ""
+            },
+            "require": {
+                "laminas/laminas-diactoros": "2.3.0",
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unicate\\LanguageDetection\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "unicate",
+                    "email": "mail2mail@gmx.ch"
+                }
+            ],
+            "description": "Simple language detection.",
+            "time": "2020-05-26T16:28:39+00:00"
+        },
+        {
+            "name": "unicate/logger",
+            "version": "v1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicate/logger.git",
+                "reference": "c69b0f1da455deb48af2e6d7b73c965877f41204"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicate/logger/zipball/c69b0f1da455deb48af2e6d7b73c965877f41204",
+                "reference": "c69b0f1da455deb48af2e6d7b73c965877f41204",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "psr/log": "1.1.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unicate\\Logger\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "unicate",
+                    "email": "mail2mail@gmx.ch"
+                }
+            ],
+            "description": "Simple language detection.",
+            "time": "2020-05-27T15:52:18+00:00"
+        },
+        {
+            "name": "unicate/packagist-test",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicate/packagist-test.git",
+                "reference": "b38116b543be74cc1446eae446eb53bc845c440d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicate/packagist-test/zipball/b38116b543be74cc1446eae446eb53bc845c440d",
+                "reference": "b38116b543be74cc1446eae446eb53bc845c440d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unicate\\PackagistTest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "unicate",
+                    "email": "mail2mail@gmx.ch"
+                }
+            ],
+            "description": "Test publishing on packagist.",
+            "time": "2020-05-26T15:22:00+00:00"
         }
     ],
     "packages-dev": [],

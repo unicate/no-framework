@@ -6,12 +6,13 @@ namespace nofw\services;
 
 use League\Plates\Engine;
 use nofw\core\Constants;
+use nofw\core\Config;
 
 class ViewService {
 
     private $engine;
 
-    function __construct(ConfigService $configService, TranslationService $translationService) {
+    function __construct(Config $configService, TranslationService $translationService) {
         $this->engine = new Engine();
         $this->engine->setDirectory(Constants::VIEWS_DIR);
         $this->engine->setFileExtension('php');

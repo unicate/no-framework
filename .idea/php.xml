@@ -27,6 +27,10 @@
       <path value="$PROJECT_DIR$/vendor/tuupola/slim-jwt-auth" />
       <path value="$PROJECT_DIR$/vendor/tuupola/callable-handler" />
       <path value="$PROJECT_DIR$/vendor/firebase/php-jwt" />
+      <path value="$PROJECT_DIR$/vendor/unicate/packagist-test" />
+      <path value="$PROJECT_DIR$/vendor/unicate/language-detection" />
+      <path value="$PROJECT_DIR$/vendor/unicate/logger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
