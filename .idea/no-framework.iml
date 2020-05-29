@@ -34,6 +34,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/unicate/language-detection" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/unicate/logger" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/unicate/packagist-test" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/unicate/translation" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

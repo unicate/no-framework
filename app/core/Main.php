@@ -4,25 +4,14 @@ declare(strict_types=1);
 
 namespace nofw\core;
 
-use DI\Container;
 use DI\ContainerBuilder;
 use League\Route\Router;
 use League\Route\Strategy\ApplicationStrategy;
-use nofw\core\Config;
 use nofw\middlewares\AuthMiddleware;
 use nofw\middlewares\CorsMiddleware;
 use nofw\services\RoutingService;
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Server\MiddlewareInterface;
 use Tuupola\Middleware\JwtAuthentication;
-use Unicate\LanguageDetection\Detection;
-use Unicate\Logger\Logger;
-use Unicate\PackagistTest\Hello;
-use function DI\env;
-use function DI\get;
-use Symfony\Component\Dotenv\Dotenv;
 
 class Main {
 

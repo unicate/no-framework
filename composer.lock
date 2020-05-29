@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56c4e7e78bf736a78043298d369ac584",
+    "content-hash": "2917b68a5f5ec4d988d23af2e6ca37df",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -1496,6 +1496,42 @@
             ],
             "description": "Test publishing on packagist.",
             "time": "2020-05-26T15:22:00+00:00"
+        },
+        {
+            "name": "unicate/translation",
+            "version": "v1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unicate/translation.git",
+                "reference": "e560a9ce4f855b2822ddb2744a630b787a5af424"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unicate/translation/zipball/e560a9ce4f855b2822ddb2744a630b787a5af424",
+                "reference": "e560a9ce4f855b2822ddb2744a630b787a5af424",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unicate\\Translation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "unicate",
+                    "email": "mail2mail@gmx.ch"
+                }
+            ],
+            "description": "File based translation for use in Views.",
+            "time": "2020-05-29T14:45:35+00:00"
         }
     ],
     "packages-dev": [],

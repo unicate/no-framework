@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace nofw\services;
 
-use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ResponseFactory;
 use League\Route\Http\Exception\NotFoundException;
-use League\Route\RouteGroup;
 use League\Route\Router;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\Diactoros\ServerRequestFactory;

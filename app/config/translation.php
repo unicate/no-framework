@@ -1,13 +1,15 @@
 <?php
 return [
-     // English Translation
+    // ***********************
+    // English Translation
+    // ***********************
     'en' => [
         'html.lang' => 'en',
-        // Index
+        // index
         'index.head.title' => 'Index EN',
-        'index.title' => 'Hello, hello... sit down',
+        'index.title' => 'Welcome!',
         'index.text' => 'Attention: This is not a framework!',
-        // Login
+        // login
         'login.head.title' => 'Login EN',
         'login.title' => 'Login',
         'login.text' => 'Congratulations, you are logged in.',
@@ -16,15 +18,16 @@ return [
         'logout.title' => 'Logout',
         'logout.text' => 'Bye, bye... you are logged out!',
     ],
-
+    // ***********************
     // German Translation
-    'de' =>  [
+    // ***********************
+    'de' => [
         'html.lang' => 'de',
-        // Index
+        // index
         'index.head.title' => 'Index DE',
-        'index.title' => 'Hallo, hallo, nimm platz!',
+        'index.title' => 'Willkommen!',
         'index.text' => 'Achtung: Das ist kein Framework!',
-        // Login
+        // login
         'login.head.title' => 'Login EN',
         'login.title' => 'Login',
         'login.text' => 'Gratuliere, du bist eingeloggt..',
@@ -34,14 +37,16 @@ return [
         'logout.text' => 'Tschüss!',
     ],
 
-    // German Translation
-    'fr' =>  [
+    // ***********************
+    // French Translation
+    // ***********************
+    'fr' => [
         'html.lang' => 'fr',
-        // Index
+        // index
         'index.head.title' => 'Index FR',
         'index.title' => 'Bonjour',
         'index.text' => 'Attention: C\'est ne pas un Framework!',
-        // Login
+        // login
         'login.head.title' => 'Login FR',
         'login.title' => 'Login',
         'login.text' => 'Oui, oui, you are logged in.',

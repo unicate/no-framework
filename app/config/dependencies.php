@@ -1,15 +1,16 @@
 <?php
 
+use League\Plates\Engine;
+use Medoo\Medoo;
 use nofw\core\Config;
 use nofw\core\Constants;
-use nofw\middlewares\CorsMiddleware;
+use nofw\services\TranslationService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Tuupola\Middleware\JwtAuthentication;
 use Unicate\LanguageDetection\Detection;
 use Unicate\Logger\Logger;
 use \Psr\Log\LoggerInterface;
-use League\Route\Router;
 
 return [
 
@@ -49,6 +50,33 @@ return [
         return new JwtAuthentication($jwtConfig);
     },
 
+    Medoo::class => function (Config $config) {
+        $dbConfig = [
+            'database_type' => 'mysql',
+            'server' => $config->getDbHost(),
+            'port' => $config->getDbPort(),
+            'database_name' => $config->getDbName(),
+            'username' => $config->getDbUser(),
+            'password' => $config->getDbPassword(),
+            'charset' => 'utf8',
+            "logging" => true,
+            'prefix' => 'wy_',
+            'option' => [
+                PDO::ATTR_CASE => PDO::CASE_NATURAL
+            ]
+        ];
+        return new Medoo($dbConfig);
+    },
+
+    Engine::class => function (Config $config, TranslationService $translationService) {
+        $provider = new Engine(Constants::VIEWS_DIR);
+        $provider->setFileExtension('php');
+        $provider->registerFunction('tlt', [$translationService, 'translate']);
+        $provider->addData([
+            'basePath' => $config->getBasePath()
+        ]);
+        return $provider;
+    },
 
 
 ];
