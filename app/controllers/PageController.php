@@ -2,34 +2,26 @@
 
 declare(strict_types=1);
 
-namespace nofw\controllers;
+namespace Nofw\Controllers;
 
-use nofw\core\Config;
-use nofw\services\LogService;
-use nofw\services\TranslationService;
-use nofw\utils\LangHelper;
+use Nofw\Core\Config;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
-use nofw\services\DatabaseService;
-use nofw\services\ViewService;
-use nofw\utils\JWTHelper;
+use Nofw\Services\DatabaseService;
+use Nofw\Services\ViewService;
+use Nofw\Utils\JWTHelper;
 use Psr\Log\LoggerInterface;
-use Unicate\Logger\Logger;
 
 
 class PageController extends AbstractController {
-    private $configService;
+    private $config;
     private $dbService;
     private $viewService;
-    private $translationService;
     private $logger;
 
-    public function __construct(Config $configService,
-                                DatabaseService $dbService,
-                                ViewService $viewService,
-                                LoggerInterface $logger) {
-        $this->configService = $configService;
+    public function __construct(Config $config, DatabaseService $dbService, ViewService $viewService, LoggerInterface $logger) {
+        $this->config = $config;
         $this->dbService = $dbService;
         $this->viewService = $viewService;
         $this->logger = $logger;
@@ -62,7 +54,7 @@ class PageController extends AbstractController {
 
 
     public function login(ServerRequestInterface $request, array $args): ResponseInterface {
-        JWTHelper::setTokenCookie($this->configService->getApiKey(), [], 'raoul@bla.com');
+        JWTHelper::setTokenCookie($this->config->getApiKey(), [], 'raoul@bla.com');
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 

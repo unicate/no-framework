@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace nofw\utils;
+namespace Nofw\Utils;
 
 use Firebase\JWT\JWT;
 

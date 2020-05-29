@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace nofw\controllers;
+namespace Nofw\Controllers;
 
-use nofw\services\DatabaseService;
+use Nofw\Services\DatabaseService;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 
 use Psr\Http\Message\ResponseInterface;
-use nofw\core\Config;
+use Nofw\Core\Config;
 
 class ApiController extends AbstractController {
     private $configService;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace nofw\middlewares;
+namespace Nofw\Middlewares;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

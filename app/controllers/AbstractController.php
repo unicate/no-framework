@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace nofw\controllers;
+namespace Nofw\Controllers;
 
 use Psr\Http\Message\ResponseInterface;
 

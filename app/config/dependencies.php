@@ -2,14 +2,15 @@
 
 use League\Plates\Engine;
 use Medoo\Medoo;
-use nofw\core\Config;
-use nofw\core\Constants;
-use nofw\services\TranslationService;
+use Nofw\Core\Config;
+use Nofw\Core\Constants;
+use Nofw\Services\TranslationService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Tuupola\Middleware\JwtAuthentication;
 use Unicate\LanguageDetection\Detection;
 use Unicate\Logger\Logger;
+use Unicate\Translation\Translation;
 use \Psr\Log\LoggerInterface;
 
 return [
@@ -67,8 +68,13 @@ return [
         ];
         return new Medoo($dbConfig);
     },
+    Translation::class => function (Detection $langDetection) {
+        $translationDefinition = require_once Constants::TRANSLATION_FILE;
+        $lang = $langDetection->detectLang();
+        return new Translation($translationDefinition, $lang);
+    },
 
-    Engine::class => function (Config $config, TranslationService $translationService) {
+    Engine::class => function (Config $config, Translation $translationService) {
         $provider = new Engine(Constants::VIEWS_DIR);
         $provider->setFileExtension('php');
         $provider->registerFunction('tlt', [$translationService, 'translate']);

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace nofw\core;
+namespace Nofw\Core;
 
 use DI\ContainerBuilder;
 use League\Route\Router;
 use League\Route\Strategy\ApplicationStrategy;
-use nofw\middlewares\AuthMiddleware;
-use nofw\middlewares\CorsMiddleware;
-use nofw\services\RoutingService;
+use Nofw\Middlewares\AuthMiddleware;
+use Nofw\Middlewares\CorsMiddleware;
+use Nofw\Services\RoutingService;
 use Psr\Container\ContainerInterface;
 use Tuupola\Middleware\JwtAuthentication;
 

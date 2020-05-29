@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace nofw\core;
+namespace Nofw\Core;
 
-use nofw\core\Constants;
 use Symfony\Component\Dotenv\Dotenv;
 
 class Config {

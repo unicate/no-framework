@@ -2,16 +2,15 @@
 
 declare(strict_types=1);
 
-namespace nofw\services;
+namespace Nofw\Services;
 
 use Laminas\Diactoros\ResponseFactory;
 use League\Route\Http\Exception\NotFoundException;
 use League\Route\Router;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use Laminas\Diactoros\ServerRequestFactory;
-use nofw\core\NofwApp;
-use nofw\core\Constants;
-use nofw\core\Config;
+use Nofw\Core\Constants;
+use Nofw\Core\Config;
 
 class RoutingService {
 

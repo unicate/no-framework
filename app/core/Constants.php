@@ -1,6 +1,6 @@
 <?php
 
-namespace nofw\core;
+namespace Nofw\Core;
 
 class Constants {
 

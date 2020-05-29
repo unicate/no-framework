@@ -3,57 +3,57 @@ return [
     [
         'method' => 'GET',
         'path' => '/',
-        'handler' => 'nofw\controllers\PageController::index'
+        'handler' => 'Nofw\Controllers\PageController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/de',
-        'handler' => 'nofw\controllers\PageController::index'
+        'handler' => 'Nofw\Controllers\PageController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/fr',
-        'handler' => 'nofw\controllers\PageController::index'
+        'handler' => 'Nofw\Controllers\PageController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/{lang}/de/index',
-        'handler' => 'nofw\controllers\PageController::index'
+        'handler' => 'Nofw\Controllers\PageController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/info',
-        'handler' => 'nofw\controllers\PageController::info'
+        'handler' => 'Nofw\Controllers\PageController::info'
     ],
     [
         'method' => 'GET',
         'path' => '/param/{id}',
-        'handler' => 'nofw\controllers\PageController::param'
+        'handler' => 'Nofw\Controllers\PageController::param'
     ],
     [
         'method' => 'GET',
         'path' => '/login',
-        'handler' => 'nofw\controllers\PageController::login'
+        'handler' => 'Nofw\Controllers\PageController::login'
     ],
     [
         'method' => 'GET',
         'path' => '/logout',
-        'handler' => 'nofw\controllers\PageController::logout'
+        'handler' => 'Nofw\Controllers\PageController::logout'
     ],
     [
         'method' => 'GET',
         'path' => '/api',
-        'handler' => 'nofw\controllers\ApiController::index'
+        'handler' => 'Nofw\Controllers\ApiController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/api/info',
-        'handler' => 'nofw\controllers\ApiController::info'
+        'handler' => 'Nofw\Controllers\ApiController::info'
     ],
     [
         'method' => 'POST',
         'path' => '/api/poster',
-        'handler' => 'nofw\controllers\ApiController::poster'
+        'handler' => 'Nofw\Controllers\ApiController::poster'
     ]
 ];
 

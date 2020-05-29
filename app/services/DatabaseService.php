@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace nofw\services;
+namespace Nofw\Services;
 
 use Medoo\Medoo;
 
