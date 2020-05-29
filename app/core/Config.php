@@ -55,7 +55,8 @@ class Config {
     }
 
     public function getAvailableLang(): array {
-        return explode(',', $this->availableLang);
+        $str = str_replace(' ', '', $this->availableLang);
+        return explode(',', $str);
     }
 
     public function getBasePath(): string {

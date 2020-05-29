@@ -17,16 +17,16 @@ use nofw\core\Config;
 
 class RoutingService {
 
-    private $configService;
+    private $config;
     private $router;
 
-    public function __construct(Config $configService, Router $router) {
-        $this->configService = $configService;
+    public function __construct(Config $config, Router $router) {
+        $this->config = $config;
         $this->router = $router;
     }
 
     public function route() {
-        $basePath = $this->configService->getBasePath();
+        $basePath = $this->config->getBasePath();
 
         $request = ServerRequestFactory::fromGlobals(
             $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES

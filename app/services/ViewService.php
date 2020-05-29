@@ -12,14 +12,14 @@ class ViewService {
 
     private $engine;
 
-    function __construct(Config $configService, TranslationService $translationService) {
+    function __construct(Config $config, TranslationService $translationService) {
         $this->engine = new Engine();
         $this->engine->setDirectory(Constants::VIEWS_DIR);
         $this->engine->setFileExtension('php');
         $this->engine->registerFunction('tlt', [$translationService, 'translate']);
         $this->engine->addData([
-            'basePath' => $configService->getBasePath(),
-            'applicationVersion' => $configService->getAppVersion()
+            'basePath' => $config->getBasePath(),
+            'applicationVersion' => $config->getAppVersion()
         ]);
     }
 

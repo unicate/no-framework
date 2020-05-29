@@ -12,15 +12,15 @@ class DatabaseService {
 
     private $connection;
 
-    public function __construct(Config $configService) {
+    public function __construct(Config $config) {
 
         $this->connection = new Medoo([
             'database_type' => 'mysql',
-            'server' => $configService->getDbHost(),
-            'port' => $configService->getDbPort(),
-            'database_name' => $configService->getDbName(),
-            'username' => $configService->getDbUser(),
-            'password' => $configService->getDbPassword(),
+            'server' => $config->getDbHost(),
+            'port' => $config->getDbPort(),
+            'database_name' => $config->getDbName(),
+            'username' => $config->getDbUser(),
+            'password' => $config->getDbPassword(),
             'charset' => 'utf8',
             "logging" => true,
             'prefix' => 'wy_',
