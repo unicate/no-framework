@@ -28,85 +28,39 @@ class Main {
 
     public function __construct() {
         // Setup DI Container
-        $containerBuilder = new ContainerBuilder();
-        $containerBuilder->useAutowiring(true);
-        $containerBuilder->addDefinitions([
-            /*
-            OrderService::class => DI\create()
-                ->constructor(DI\get(SomeOtherService::class), 'a value'),
-            */
-            
-            Config::class =>
-                \DI\autowire()->constructor(Constants::CONFIG_DIR . '/.env'),
-/*
-            Logger::class =>
-                \DI\autowire()->constructor(
-                    'debug',
-                    Constants::LOGS_DIR
-                ),
-*/
-            Logger::class => \DI\factory(function (Config $config) {
-                return new Logger($config->getLogLevel(), Constants::LOGS_DIR);
-            }),
-
-            Detection::class => \DI\factory(function (Config $config) {
-                return new Detection($config->getDefaultLang(), $config->getAvailableLang());
-            }),
-/*
-            Detection::class =>
-                \DI\autowire()->constructor(
-                    'de',
-                    array('en', 'de', 'fr')
-                ),
-*/
-            MiddlewareInterface::class => \DI\factory(function (Config $config) {
-                //$config = get(Config::class);
-                $basePath = $config->getBasePath();
-                $jwtConfig = [
-                    "path" => $basePath . "/api",
-                    "ignore" => [
-                        $basePath . "/api/info"
-                    ],
-                    "secret" => $config->getApiKey(),
-                    "attribute" => 'jwt',
-                    "relaxed" => ["127.0.0.1", "localhost", "unicate.local", "silver.local"],
-                    "error" => function (Response $response) use ($basePath) {
-                        $response->getBody()->write("<h1>401 Not authorized</h1><p><a href='$basePath/login'>Login</a></p>");
-                        return $response->withStatus(401);
-                    },
-                    "before" => function (Request $request, $arguments) {
-                        return $request->withAttribute("authenticated", "true");
-                    },
-                    "after" => function ($response, $arguments) {
-                        return $response->withHeader("X-AUTH", "authenticated=true");
-                    }
-                ];
-
-                return new JwtAuthentication($jwtConfig);
-
-            }),
-
-        ]);
-        $container = $containerBuilder->build();
-
+        $container = $this->initContainer();
 
         // Init Router
-        $strategy = new ApplicationStrategy();
-        $strategy->setContainer($container);
-        $router = $container->get(Router::class);
-        $router->setStrategy($strategy);
+        $router = $this->initRouter($container);
 
         // Add Middlewares
-        $router->middlewares([
-            $container->get(CorsMiddleware::class),
-            //$container->get(JwtAuthentication::class),
-        ]);
-
+        $this->addMiddlewares($router, $container);
 
         // Start routing
         $container->call([RoutingService::class, 'route'], []);
     }
 
+    private function initContainer(): ContainerInterface {
+        $containerBuilder = new ContainerBuilder();
+        $containerBuilder->useAutowiring(true);
+        $containerBuilder->addDefinitions(Constants::DEPENDENCY_FILE);
+        return $containerBuilder->build();
+    }
+
+    private function initRouter(ContainerInterface $container): Router {
+        $strategy = new ApplicationStrategy();
+        $strategy->setContainer($container);
+        $router = $container->get(Router::class);
+        $router->setStrategy($strategy);
+        return $router;
+    }
+
+    private function addMiddlewares(Router $router, ContainerInterface $container) {
+        $router->middlewares([
+            $container->get(CorsMiddleware::class),
+            $container->get(JwtAuthentication::class),
+        ]);
+    }
 
 
 }

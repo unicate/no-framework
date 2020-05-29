@@ -14,6 +14,7 @@ use Psr\Http\Message\ResponseInterface;
 use nofw\services\DatabaseService;
 use nofw\services\ViewService;
 use nofw\utils\JWTHelper;
+use Psr\Log\LoggerInterface;
 use Unicate\Logger\Logger;
 
 
@@ -27,7 +28,7 @@ class PageController extends AbstractController {
     public function __construct(Config $configService,
                                 DatabaseService $dbService,
                                 ViewService $viewService,
-                                Logger $logger) {
+                                LoggerInterface $logger) {
         $this->configService = $configService;
         $this->dbService = $dbService;
         $this->viewService = $viewService;

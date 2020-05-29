@@ -10,7 +10,7 @@
     "catfan/Medoo": "1.7.10",
     "unicate/packagist-test" : "1.1",
     "unicate/language-detection" : "1.0",
-    "unicate/logger" : "1.0"
+    "unicate/logger" : "1.1"
   },
   "autoload": {
     "psr-4": {

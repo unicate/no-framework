@@ -17,8 +17,6 @@ class TranslationService {
         $this->setLang($langDetection->detectLang());
     }
 
-
-
     public function setLang($lang) {
         $this->lang = $lang;
     }

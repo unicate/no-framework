@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5338419c8199be109ccc61d7f63ac5fa",
+    "content-hash": "56c4e7e78bf736a78043298d369ac584",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -1426,16 +1426,16 @@
         },
         {
             "name": "unicate/logger",
-            "version": "v1",
+            "version": "v1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/unicate/logger.git",
-                "reference": "c69b0f1da455deb48af2e6d7b73c965877f41204"
+                "reference": "6229b96f35cc6948caf284a80b5a26409e3e7541"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unicate/logger/zipball/c69b0f1da455deb48af2e6d7b73c965877f41204",
-                "reference": "c69b0f1da455deb48af2e6d7b73c965877f41204",
+                "url": "https://api.github.com/repos/unicate/logger/zipball/6229b96f35cc6948caf284a80b5a26409e3e7541",
+                "reference": "6229b96f35cc6948caf284a80b5a26409e3e7541",
                 "shasum": ""
             },
             "require": {
@@ -1459,7 +1459,7 @@
                 }
             ],
             "description": "Simple language detection.",
-            "time": "2020-05-27T15:52:18+00:00"
+            "time": "2020-05-29T14:16:48+00:00"
         },
         {
             "name": "unicate/packagist-test",
