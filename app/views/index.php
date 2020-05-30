@@ -1,8 +1,7 @@
 <?php
-$data = ['head_title' => $this->tlt('index.head.title')];
+$data = ['head_title' => $this->tlt('index.head.title'), 'show_hero' => true];
 $this->layout('templates/master', $data);
 ?>
-
 <div class="content is-medium">
     <h3 class="title is-3">Getting Started</h3>
     <div class="box">

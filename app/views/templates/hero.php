@@ -1,3 +1,4 @@
+<?php if ($show_hero): ?>
 <section class="hero is-primary">
     <div class="hero-body">
         <div class="columns">
@@ -26,3 +27,19 @@
         </div>
     </div>
 </section>
+<?php endif ?>
+
+<?php if (!$show_hero): ?>
+    <section class="hero is-primary is-small">
+        <div class="hero-body">
+            <div class="columns">
+                <div class="column is-12">
+                    <div class="container content">
+                        <span class="title">Nofw</span>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<?php endif ?>
