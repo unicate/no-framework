@@ -27,7 +27,6 @@ return [
     },
 
     JwtAuthentication::class => function (Config $config) {
-        //$config = get(Config::class);
         $basePath = $config->getBasePath();
         $jwtConfig = [
             "path" => $basePath . "/api",

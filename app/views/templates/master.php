@@ -14,16 +14,24 @@
     <link rel="alternate" href="" hreflang="de">
     <link rel="alternate" href="" hreflang="en">
     <link rel="alternate" href="" hreflang="x-default">
-
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
-
 <body>
-
-<?= $this->section('content') ?>
-
-<p>
-    <a href="<?= $this->e($basePath) ?>">Back</a>
-</p>
-
+<?php $this->insert('templates/hero') ?>
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-3">
+                <?php $this->insert('templates/aside') ?>
+            </div>
+            <div class="column is-9">
+                <?= $this->section('content') ?>
+            </div>
+        </div>
+    </div>
+</section>
+<?php $this->insert('templates/footer') ?>
 </body>
 </html>

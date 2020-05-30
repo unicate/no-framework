@@ -1,0 +1,52 @@
+body,
+html {
+    background: #f2f2f2;
+}
+
+pre,
+.message {
+    max-width: 960px;
+}
+
+li {margin: 10px}
+
+.hero.is-primary {
+    background: linear-gradient(to top right, #264d73 10%, #c6d9ec);
+}
+
+.box {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.box span.icon {
+    float: right;
+    font-size: 1.7em;
+    padding: 2rem 2rem 0 0;
+}
+
+
+.media-content {overflow: hidden;}
+
+.menu-list li a {
+    background: #264d73;
+    color: #fff;
+}
+
+.menu-list li a:hover {
+    background: #c6d9ec;
+}
+
+.token.number {
+    display: inline;
+    padding: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    vertical-align: inherit;
+    border-radius: inherit;
+    font-weight: inherit;
+    white-space: inherit;
+    background: inherit;
+    margin: inherit;
+}
+.footer {background-color: white;}
