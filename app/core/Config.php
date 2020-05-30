@@ -59,7 +59,12 @@ class Config {
     }
 
     public function getBasePath(): string {
-        return empty($this->basePath) ? dirname($_SERVER['SCRIPT_NAME']) : $this->basePath;
+        if (empty($this->basePath)) {
+            $basePath = dirname($_SERVER['SCRIPT_NAME']);;
+            return rtrim($basePath, '/');
+        } else {
+            return $this->basePath;
+        }
     }
 
     public function getDbHost(): string {
