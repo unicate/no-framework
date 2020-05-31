@@ -3,42 +3,42 @@ return [
     [
         'method' => 'GET',
         'path' => '/',
-        'handler' => 'Nofw\Controllers\PageController::index'
+        'handler' => 'Nofw\Controllers\BasicController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/de',
-        'handler' => 'Nofw\Controllers\PageController::index'
+        'handler' => 'Nofw\Controllers\BasicController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/fr',
-        'handler' => 'Nofw\Controllers\PageController::index'
+        'handler' => 'Nofw\Controllers\BasicController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/{lang}/de/index',
-        'handler' => 'Nofw\Controllers\PageController::index'
+        'handler' => 'Nofw\Controllers\BasicController::index'
     ],
     [
         'method' => 'GET',
         'path' => '/info',
-        'handler' => 'Nofw\Controllers\PageController::info'
+        'handler' => 'Nofw\Controllers\BasicController::info'
     ],
     [
         'method' => 'GET',
         'path' => '/param/{id}',
-        'handler' => 'Nofw\Controllers\PageController::param'
+        'handler' => 'Nofw\Controllers\BasicController::param'
     ],
     [
         'method' => 'GET',
         'path' => '/login',
-        'handler' => 'Nofw\Controllers\PageController::login'
+        'handler' => 'Nofw\Controllers\UserController::login'
     ],
     [
         'method' => 'GET',
         'path' => '/logout',
-        'handler' => 'Nofw\Controllers\PageController::logout'
+        'handler' => 'Nofw\Controllers\UserController::logout'
     ],
     [
         'method' => 'GET',

@@ -28,19 +28,6 @@ $this->layout('templates/master', $data);
         </article>
         <pre><code class="language-javascript">let i = 0;</code></pre>
     </div>
-    <h3 class="title is-3">More to Come...</h3>
-    <div class="box">
-        <h4 id="lorem" class="title is-4">More to come...</h4>
-        <article class="message is-primary">
-              <span class="icon has-text-primary">
-                <i class="fas fa-info-circle"></i>
-              </span>
-            <div class="message-body">
-                Lorem ipsum dolor sit amet, mea ne viderer veritus menandri, id scaevola gloriatur
-                instructior sit.
-            </div>
-        </article>
-        <pre><code class="language-javascript">let i = 0;</code></pre>
-    </div>
+
 </div>
 

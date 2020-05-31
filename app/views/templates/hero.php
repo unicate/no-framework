@@ -1,4 +1,4 @@
-<?php if ($show_hero): ?>
+<?php if (isset($show_hero)): ?>
 <section class="hero is-primary">
     <div class="hero-body">
         <div class="columns">

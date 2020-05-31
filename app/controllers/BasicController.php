@@ -5,24 +5,20 @@ declare(strict_types=1);
 namespace Nofw\Controllers;
 
 use Nofw\Core\Config;
+use Nofw\models\UserModel;
 use Psr\Http\Message\ServerRequestInterface;
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
-use Nofw\Services\DatabaseService;
 use Nofw\Services\ViewService;
 use Nofw\Utils\JWTHelper;
 use Psr\Log\LoggerInterface;
 
 
-class PageController extends AbstractController {
-    private $config;
-    private $dbService;
+class BasicController extends AbstractController {
     private $viewService;
     private $logger;
 
-    public function __construct(Config $config, DatabaseService $dbService, ViewService $viewService, LoggerInterface $logger) {
-        $this->config = $config;
-        $this->dbService = $dbService;
+    public function __construct(ViewService $viewService, LoggerInterface $logger) {
         $this->viewService = $viewService;
         $this->logger = $logger;
     }
@@ -32,7 +28,7 @@ class PageController extends AbstractController {
     }
 
     public function info(ServerRequestInterface $request, array $args): ResponseInterface {
-        $info = print_r($this->dbService->get()->info(), true);
+        $info = print_r($this->model->getInfo(), true);
 
         $this->logger->debug('test some very detailed debug log {data}', ['data' => '...some data...']);
         $this->logger->info('test loggin some info {kind} stuff', ['kind' => 'crazy']);
@@ -53,14 +49,6 @@ class PageController extends AbstractController {
     }
 
 
-    public function login(ServerRequestInterface $request, array $args): ResponseInterface {
-        JWTHelper::setTokenCookie($this->config->getApiKey(), [], 'raoul@bla.com');
-        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
-    }
 
-    public function logout(ServerRequestInterface $request, array $args): ResponseInterface {
-        JWTHelper::deleteTokenCookie();
-        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
-    }
 
 }

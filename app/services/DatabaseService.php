@@ -18,5 +18,9 @@ class DatabaseService {
         return $this->provider;
     }
 
+    public function info(): Medoo {
+        return $this->provider->info();
+    }
+
 
 }
