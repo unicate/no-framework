@@ -26,18 +26,14 @@ class UserController extends AbstractController {
     }
 
     public function login(ServerRequestInterface $request, array $args): ResponseInterface {
+        $success = null;
         if ($request->getMethod() == 'POST') {
-            $email = $request->getParsedBody()['email'];
-            $password = $request->getParsedBody()['password'];
-            if ($email == 'raoul@bla.com' && $password == 'bear deer ibex') {
-                $success = true;
-            } else {
-                $success = false;
-            }
-        }else {
-            $success = null;
+            $success = $this->model->hasOne([
+                    'email' => $request->getParsedBody()['email'],
+                    'password' => md5(md5($request->getParsedBody()['password']))
+                ]
+            );
         }
-
         return $this->basicResponse(new Response(),
             $this->view->renderPage(__FUNCTION__, ['success' => $success])
         );
@@ -75,15 +71,15 @@ class UserController extends AbstractController {
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
 */
-/*
- *     public function poster(ServerRequestInterface $request, array $args): ResponseInterface {
-        $data['aaa'] = 'aaa';
-        $data['bbb'] = 'bbb';
-        $data['form'] = $request->getParsedBody()['key1'];
-        $data['param'] = $request->getQueryParams()['key1'];
-        return $this->jsonResponse(new Response(), $data);
-    }
- */
+    /*
+     *     public function poster(ServerRequestInterface $request, array $args): ResponseInterface {
+            $data['aaa'] = 'aaa';
+            $data['bbb'] = 'bbb';
+            $data['form'] = $request->getParsedBody()['key1'];
+            $data['param'] = $request->getQueryParams()['key1'];
+            return $this->jsonResponse(new Response(), $data);
+        }
+     */
 
 
 }

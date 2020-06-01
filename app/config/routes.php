@@ -10,6 +10,11 @@ return [
     ],
     [
         'method' => 'GET',
+        'path' => '/en',
+        'handler' => 'Nofw\Controllers\BasicController::index'
+    ],
+    [
+        'method' => 'GET',
         'path' => '/de',
         'handler' => 'Nofw\Controllers\BasicController::index'
     ],
