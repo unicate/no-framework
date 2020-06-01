@@ -17,14 +17,36 @@ use Psr\Log\LoggerInterface;
 class UserController extends AbstractController {
     private $config;
     private $model;
-    private $viewService;
+    private $view;
 
-    public function __construct(Config $config, UserModel $model, ViewService $viewService) {
+    public function __construct(Config $config, UserModel $model, ViewService $view) {
         $this->config = $config;
         $this->model = $model;
-        $this->viewService = $viewService;
+        $this->view = $view;
     }
 
+    public function login(ServerRequestInterface $request, array $args): ResponseInterface {
+        if ($request->getMethod() == 'POST') {
+            $email = $request->getParsedBody()['email'];
+            $password = $request->getParsedBody()['password'];
+            if ($email == 'raoul@bla.com' && $password == 'bear deer ibex') {
+                $success = true;
+            } else {
+                $success = false;
+            }
+        }else {
+            $success = null;
+        }
+
+        return $this->basicResponse(new Response(),
+            $this->view->renderPage(__FUNCTION__, ['success' => $success])
+        );
+    }
+
+
+
+    /*
+     *
     public function login(ServerRequestInterface $request, array $args): ResponseInterface {
         $m = $request->getMethod();
         JWTHelper::setTokenCookie($this->config->getApiKey(), [], 'raoul@bla.com');
@@ -52,8 +74,16 @@ class UserController extends AbstractController {
         JWTHelper::deleteTokenCookie();
         return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
     }
-
-
+*/
+/*
+ *     public function poster(ServerRequestInterface $request, array $args): ResponseInterface {
+        $data['aaa'] = 'aaa';
+        $data['bbb'] = 'bbb';
+        $data['form'] = $request->getParsedBody()['key1'];
+        $data['param'] = $request->getQueryParams()['key1'];
+        return $this->jsonResponse(new Response(), $data);
+    }
+ */
 
 
 }

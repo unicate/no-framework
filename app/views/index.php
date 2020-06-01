@@ -52,7 +52,7 @@ $this->layout('templates/master', $data);
 <div id="faq" class="content is-medium">
     <h3 class="title is-3">FAQ</h3>
     <div class="box">
-        <article class="message is-primary">
+        <article class="message is-info">
             <div class="message-header">
                 Some good question....
             </div>
@@ -62,7 +62,7 @@ $this->layout('templates/master', $data);
         </article>
     </div>
     <div class="box">
-        <article class="message is-primary">
+        <article class="message is-info">
             <div class="message-header">
                 Another good question....
             </div>

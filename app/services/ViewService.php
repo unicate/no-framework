@@ -18,5 +18,12 @@ class ViewService {
         return $this->provider->render($pageName, $data);
     }
 
+    /**
+     * @deprecated
+     */
+    public function addData(array $data) {
+        $this->provider->addData($data);
+    }
+
 
 }

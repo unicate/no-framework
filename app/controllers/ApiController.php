@@ -31,22 +31,4 @@ class ApiController extends AbstractController {
         ]);
     }
 
-    public function info(ServerRequestInterface $request, array $args): ResponseInterface {
-        $data['application']['app_version'] = $this->config->getAppVersion();
-        $data['application']['php_version'] = phpversion();
-        $data['application']['server_software'] = $_SERVER['SERVER_SOFTWARE'];
-        $data['application']['script_name'] = $_SERVER['SCRIPT_NAME'];
-        $data['application']['script_dir'] = dirname($_SERVER['SCRIPT_NAME']);
-        return $this->jsonResponse(new Response(), $data);
-    }
-
-    public function poster(ServerRequestInterface $request, array $args): ResponseInterface {
-        $data['aaa'] = 'aaa';
-        $data['bbb'] = 'bbb';
-        $data['form'] = $request->getParsedBody()['key1'];
-        $data['param'] = $request->getQueryParams()['key1'];
-        return $this->jsonResponse(new Response(), $data);
-    }
-
-
 }

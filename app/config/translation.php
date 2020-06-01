@@ -14,8 +14,8 @@ return [
         'index.text' => 'Attention: This is not a framework!',
         // login
         'login.head.title' => 'Login EN',
-        'login.title' => 'Login',
-        'login.text' => 'Congratulations, you are logged in.',
+        'login.title' => 'Demo Login',
+        'login.text' => 'Use E-Mail: test@test.com and Password: 123456',
         // logout
         'logout.head.title' => 'Logout EN',
         'logout.title' => 'Logout',
