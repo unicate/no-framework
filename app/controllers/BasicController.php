@@ -28,7 +28,7 @@ class BasicController extends AbstractController {
     }
 
     public function info(ServerRequestInterface $request, array $args): ResponseInterface {
-        $info = print_r($this->model->getInfo(), true);
+        $info = print_r($this->model->info(), true);
 
         $this->logger->debug('test some very detailed debug log {data}', ['data' => '...some data...']);
         $this->logger->info('test loggin some info {kind} stuff', ['kind' => 'crazy']);

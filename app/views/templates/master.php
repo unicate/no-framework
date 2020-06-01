@@ -19,7 +19,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-<?php $this->insert('templates/hero', ['show_hero' => $show_hero]) ?>
+<?php $this->insert('templates/hero', ['show_hero' => isset($show_hero) ? $show_hero : null]) ; ?>
 <section class="section">
     <div class="container">
         <div class="columns">

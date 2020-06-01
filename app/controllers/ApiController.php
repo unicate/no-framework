@@ -23,7 +23,7 @@ class ApiController extends AbstractController {
     public function index(ServerRequestInterface $request, array $args): ResponseInterface {
         return $this->jsonResponse(new Response(), [
             'data' => 'some data',
-            'db_data' => $this->model->getInfo(),
+            'db_data' => $this->model->info(),
             'links' => [
                 'link1' => 'http://link1.com',
                 'link2' => 'http://link2.com'
