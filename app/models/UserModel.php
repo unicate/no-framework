@@ -13,8 +13,8 @@ class UserModel extends Model {
     }
 
 
-
     public function login() {
+
         $this->getOne(['email' => 'raoul@bla.com']);
     }
 

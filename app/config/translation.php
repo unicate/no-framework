@@ -7,7 +7,7 @@ return [
         'html.lang' => 'en',
         // hero
         'hero.title' => 'No Framework',
-        'hero.subtitle' => 'Not yet another PHP framework. <br/>This is the "no framework" framework.',
+        'hero.subtitle' => 'As little "framework" as possible, as much as required.',
         // index
         'index.head.title' => 'Index EN',
         'index.title' => 'Welcome!',
@@ -28,7 +28,7 @@ return [
         'html.lang' => 'de',
         // hero
         'hero.title' => 'No Framework',
-        'hero.subtitle' => 'Nicht einfach noch ein PHP framework. <br/>Das "no framework" framework.',
+        'hero.subtitle' => 'So wenig "Framework" wie möglich, soviel wie nötig.',
         // index
         'index.head.title' => 'Index DE',
         'index.title' => 'Willkommen!',

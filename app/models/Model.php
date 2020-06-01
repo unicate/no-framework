@@ -10,7 +10,7 @@ class Model {
     private $db;
     private $table;
 
-    public function __construct(Medoo $db, $table = '') {
+    public function __construct(Medoo $db, string $table = '') {
         $this->db = $db;
         $this->setTable($table);
     }

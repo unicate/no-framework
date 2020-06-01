@@ -25,15 +25,9 @@ class UserController extends AbstractController {
         $this->viewService = $viewService;
     }
 
-    public function index(ServerRequestInterface $request, array $args): ResponseInterface {
-        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
-    }
-
     public function login(ServerRequestInterface $request, array $args): ResponseInterface {
+        $m = $request->getMethod();
         JWTHelper::setTokenCookie($this->config->getApiKey(), [], 'raoul@bla.com');
-        //$bla = $this->model->getUserByEmail('raoul@bla.com');
-        //$lol = $this->model->verifyLogin('raoul@bla.com', '123456xxxxx');
-        //$lal = $this->model->find(['email' => 'raoul@bla.com', 'password'=>'raoul@bla.com']);
         $lal1 = $this->model->getOne(['email' => 'raoul@bla.comx']);
         $lal2 = $this->model->getAll(['status' => '0']);
 
