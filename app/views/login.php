@@ -12,7 +12,7 @@ $this->layout('templates/master', $data);
                     Login successful.
                 </div>
             </div>
-            <a class="button is-success">Continue</a>
+            <a class="button is-success" href="en/demo/tasks">Continue</a>
         <?php endif ?>
         <?php if ($success === false): ?>
             <div class="message is-danger">
@@ -39,7 +39,7 @@ $this->layout('templates/master', $data);
                         <button class="button is-success" type="submit">
                             Login
                         </button>
-                        <a href="en/demo/register" class="button is-info">Register</a>
+                        <a href="en/demo/register" class="button is-text">Register</a>
                     </p>
                 </div>
             </form>

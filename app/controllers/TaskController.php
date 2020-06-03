@@ -16,26 +16,37 @@ use Psr\Log\LoggerInterface;
 
 
 class TaskController extends AbstractController {
-    private $config;
     private $model;
     protected $view;
 
-    public function __construct(Config $config, TaskModel $model, ViewService $view) {
-        $this->config = $config;
+    public function __construct(TaskModel $model, ViewService $view) {
         $this->model = $model;
         $this->view = $view;
     }
 
     public function list(ServerRequestInterface $request, array $args): ResponseInterface {
-        $tasks = $this->model->list();
-        return $this->page('tasks', ['tasks' => $tasks]);
+        return $this->page('tasks', [
+            'tasks' => $this->model->list()
+        ]);
     }
 
     public function add(ServerRequestInterface $request, array $args): ResponseInterface {
-        $name = $request->getParsedBody()['name'];
-        $text = $request->getParsedBody()['text'];
-        $success = $this->model->add($name, $text);
+        $this->model->add(
+            $request->getParsedBody()['name'],
+            $request->getParsedBody()['text']
+        );
         return $this->list($request, $args);
+    }
+
+
+    public function delete(ServerRequestInterface $request, array $args): ResponseInterface {
+        $this->model->delete($args['id']);
+        return $this->redirect('../../tasks');
+    }
+    public function done(ServerRequestInterface $request, array $args): ResponseInterface {
+        $this->model->done($args['id']);
+        return $this->redirect('../../tasks');
+
     }
 
 }

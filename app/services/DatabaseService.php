@@ -32,11 +32,11 @@ class DatabaseService {
     }
 
     public function hasOne(array $where): bool {
-        return $this->db->has($this->table, ["AND" => $where]);
+        return $this->db->has($this->table, $where);
     }
 
     public function getOne(array $where): array {
-        $result = $this->db->get($this->table, "*", ["AND" => $where]);
+        $result = $this->db->get($this->table, "*", $where);
         if (empty($result)) {
             return [];
         } else {
@@ -45,7 +45,7 @@ class DatabaseService {
     }
 
     public function getAll(array $where): array {
-        $result = $this->db->select($this->table, "*", ["AND" => $where]);
+        $result = $this->db->select($this->table, "*", $where);
         if (empty($result)) {
             return [];
         } else {
@@ -59,12 +59,12 @@ class DatabaseService {
     }
 
     public function update(array $data, array $where): bool {
-        $pdo = $this->db->update($this->table, $data, ["AND" => $where]);
+        $pdo = $this->db->update($this->table, $data, $where);
         return ($pdo->rowCount() > 0);
     }
 
     public function delete(array $where): bool {
-        $pdo = $this->db->delete($this->table, ["AND" => $where]);
+        $pdo = $this->db->delete($this->table, $where);
         return ($pdo->rowCount() > 0);
     }
 

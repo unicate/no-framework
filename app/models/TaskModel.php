@@ -21,7 +21,16 @@ class TaskModel {
     }
 
     public function list() {
-        return $this->model->getAll(['status' => '0']);
+        return $this->model->getAll([]);
+    }
+
+
+    public function delete($id) {
+        return $this->model->delete(['id' => $id]);
+    }
+
+    public function done($id) {
+        return $this->model->update(['status'=> '1'],['id' => $id]);
     }
 
 

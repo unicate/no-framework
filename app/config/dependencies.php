@@ -29,9 +29,9 @@ return [
     JwtAuthentication::class => function (Config $config) {
         $basePath = $config->getBasePath();
         $jwtConfig = [
-            "path" => $basePath . "/api",
+            "path" => $basePath . "/en/demo",
             "ignore" => [
-                $basePath . "/api/info"
+                $basePath . "/en/demo/login"
             ],
             "secret" => $config->getApiKey(),
             "attribute" => 'jwt',

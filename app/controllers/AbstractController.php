@@ -6,6 +6,7 @@ namespace Nofw\Controllers;
 
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
+use Laminas\Diactoros\ResponseFactory;
 
 abstract class AbstractController {
 
@@ -25,5 +26,11 @@ abstract class AbstractController {
         )->withStatus(200);
     }
 
+    public function redirect(string $url): ResponseInterface {
+        return $response = (new ResponseFactory())->createResponse()
+            ->withHeader('Location', $url)
+            ->withStatus(301, 'Redirect');
+
+    }
 
 }
