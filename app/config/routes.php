@@ -31,11 +31,32 @@ return [
         'path' => '/en/demo/login',
         'handler' => 'Nofw\Controllers\UserController::login'
     ],
+    /*
+     * Register
+     */
     [
         'method' => 'GET',
-        'path' => '/logout',
-        'handler' => 'Nofw\Controllers\UserController::logout'
+        'path' => '/en/demo/register',
+        'handler' => 'Nofw\Controllers\UserController::register'
     ],
+    [
+        'method' => 'POST',
+        'path' => '/en/demo/register',
+        'handler' => 'Nofw\Controllers\UserController::register'
+    ],
+    [
+        'method' => 'GET',
+        'path' => '/en/demo/tasks',
+        'handler' => 'Nofw\Controllers\TaskController::list'
+    ],
+    [
+        'method' => 'POST',
+        'path' => '/en/demo/tasks',
+        'handler' => 'Nofw\Controllers\TaskController::add'
+    ],
+    /*
+     * API
+     */
     [
         'method' => 'GET',
         'path' => '/api',

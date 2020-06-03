@@ -9,13 +9,23 @@ class UserModel {
     private $model;
 
     public function __construct(DatabaseService $db) {
-        $this->model = $db->model($this);
+        $this->model = $db->model(self::class);
+    }
+
+    public function register(string $name, string $email, string $password) {
+        return $this->model->insert([
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+            "status" => 0,
+            "date_created" => date("Y-m-d H:i:s")
+        ]);
     }
 
     public function verifyLogin(string $email, string $password) {
         return $this->model->hasOne([
             'email' => $email,
-            'password' => md5(md5($password))
+            'password' => $password
         ]);
     }
 

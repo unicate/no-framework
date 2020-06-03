@@ -23,11 +23,6 @@ $this->layout('templates/master', $data);
         <?php endif ?>
 
         <?php if (!$success): ?>
-            <div class="message is-info">
-                <div class="message-body">
-                    <?= $this->tlt('login.text') ?>
-                </div>
-            </div>
             <form method="post" enctype="application/x-www-form-urlencoded">
                 <div class="field">
                     <p class="control">
@@ -44,6 +39,7 @@ $this->layout('templates/master', $data);
                         <button class="button is-success" type="submit">
                             Login
                         </button>
+                        <a href="en/demo/register" class="button is-info">Register</a>
                     </p>
                 </div>
             </form>

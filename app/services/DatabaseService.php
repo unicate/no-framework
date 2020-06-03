@@ -25,7 +25,7 @@ class DatabaseService {
     }
 
     public function model($model) : DatabaseService{
-        $nameSpace = explode('\\', get_class($model));
+        $nameSpace = explode('\\', $model);
         $clazz = strtolower(end($nameSpace));
         $this->table = str_replace('model', '', $clazz);
         return $this;
@@ -45,7 +45,12 @@ class DatabaseService {
     }
 
     public function getAll(array $where): array {
-        return $this->db->select($this->table, "*", ["AND" => $where]);
+        $result = $this->db->select($this->table, "*", ["AND" => $where]);
+        if (empty($result)) {
+            return [];
+        } else {
+            return $result;
+        }
     }
 
     public function insert(array $data): bool {

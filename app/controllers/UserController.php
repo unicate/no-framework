@@ -25,6 +25,18 @@ class UserController extends AbstractController {
         $this->view = $view;
     }
 
+    public function register(ServerRequestInterface $request, array $args): ResponseInterface {
+        $success = null;
+        if ($request->getMethod() == 'POST') {
+            $success = $this->model->register(
+                $request->getParsedBody()['name'],
+                $request->getParsedBody()['email'],
+                $request->getParsedBody()['password']
+            );
+        }
+        return $this->page('register', ['success' => $success]);
+    }
+
     public function login(ServerRequestInterface $request, array $args): ResponseInterface {
         $success = null;
         if ($request->getMethod() == 'POST') {
@@ -36,48 +48,5 @@ class UserController extends AbstractController {
         return $this->page('login', ['success' => $success]);
 
     }
-
-
-
-    /*
-     *
-    public function login(ServerRequestInterface $request, array $args): ResponseInterface {
-        $m = $request->getMethod();
-        JWTHelper::setTokenCookie($this->config->getApiKey(), [], 'raoul@bla.com');
-        $lal1 = $this->model->getOne(['email' => 'raoul@bla.comx']);
-        $lal2 = $this->model->getAll(['status' => '0']);
-
-        $data = [
-            "name" => 'Test Test',
-            "email" => '11sdf@asdfadsfa.com',
-            "password" => md5(md5('123456')),
-            "signup_token" => 'sadfasdf',
-            "status" => 0,
-            "date_created" => date("Y-m-d H:i:s")
-        ];
-        $lal3 = $this->model->insert($data);
-
-        $lal4 = $this->model->update(['status'=> '1'], ['status' => '0']);
-        $lal5 = $this->model->delete(['id'=> '17', 'status' => '1']);
-        $lal6 = $this->model->hasOne(['id'=> '32', 'status' => '0']);
-
-        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
-    }
-
-    public function logout(ServerRequestInterface $request, array $args): ResponseInterface {
-        JWTHelper::deleteTokenCookie();
-        return $this->basicResponse(new Response(), $this->viewService->renderPage(__FUNCTION__, []));
-    }
-*/
-    /*
-     *     public function poster(ServerRequestInterface $request, array $args): ResponseInterface {
-            $data['aaa'] = 'aaa';
-            $data['bbb'] = 'bbb';
-            $data['form'] = $request->getParsedBody()['key1'];
-            $data['param'] = $request->getQueryParams()['key1'];
-            return $this->jsonResponse(new Response(), $data);
-        }
-     */
-
 
 }

@@ -60,7 +60,7 @@ return [
             'password' => $config->getDbPassword(),
             'charset' => 'utf8',
             "logging" => true,
-            'prefix' => 'wy_',
+            'prefix' => 'nofw_',
             'option' => [
                 PDO::ATTR_CASE => PDO::CASE_NATURAL
             ]
