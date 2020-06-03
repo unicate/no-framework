@@ -17,7 +17,7 @@ use Psr\Log\LoggerInterface;
 class UserController extends AbstractController {
     private $config;
     private $model;
-    private $view;
+    protected $view;
 
     public function __construct(Config $config, UserModel $model, ViewService $view) {
         $this->config = $config;
@@ -28,15 +28,13 @@ class UserController extends AbstractController {
     public function login(ServerRequestInterface $request, array $args): ResponseInterface {
         $success = null;
         if ($request->getMethod() == 'POST') {
-            $success = $this->model->hasOne([
-                    'email' => $request->getParsedBody()['email'],
-                    'password' => md5(md5($request->getParsedBody()['password']))
-                ]
-            );
+            $email = $request->getParsedBody()['email'];
+            $password = $request->getParsedBody()['password'];
+            $success = $this->model->verifyLogin($email, $password);
+            JWTHelper::setTokenCookie($this->config->getApiKey(), [], $email);
         }
-        return $this->basicResponse(new Response(),
-            $this->view->renderPage(__FUNCTION__, ['success' => $success])
-        );
+        return $this->page('login', ['success' => $success]);
+
     }
 
 

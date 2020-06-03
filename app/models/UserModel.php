@@ -2,20 +2,21 @@
 
 namespace Nofw\models;
 
-use Medoo\Medoo;
 use Nofw\Services\DatabaseService;
-use PhpParser\Node\Expr\AssignOp\Mod;
 
-class UserModel extends Model {
+class UserModel {
 
-    public function __construct(Medoo $db) {
-        parent::__construct($db);
+    private $model;
+
+    public function __construct(DatabaseService $db) {
+        $this->model = $db->model($this);
     }
 
-
-    public function login() {
-
-        $this->getOne(['email' => 'raoul@bla.com']);
+    public function verifyLogin(string $email, string $password) {
+        return $this->model->hasOne([
+            'email' => $email,
+            'password' => md5(md5($password))
+        ]);
     }
 
 

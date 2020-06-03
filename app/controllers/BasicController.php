@@ -5,23 +5,20 @@ declare(strict_types=1);
 namespace Nofw\Controllers;
 
 use Psr\Http\Message\ServerRequestInterface;
-use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
 use Nofw\Services\ViewService;
 
 
 class BasicController extends AbstractController {
-    private $viewService;
 
-    public function __construct(ViewService $viewService) {
-        $this->viewService = $viewService;
+    protected $view;
+
+    public function __construct(ViewService $view) {
+        $this->view = $view;
     }
 
     public function index(ServerRequestInterface $request, array $args): ResponseInterface {
-        return $this->basicResponse(new Response(),
-            $this->viewService->renderPage(__FUNCTION__, []
-            )
-        );
+        return $this->page('index');
     }
 
 }
