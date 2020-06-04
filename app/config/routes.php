@@ -55,12 +55,12 @@ return [
         'handler' => 'Nofw\Controllers\TaskController::add'
     ],
     [
-        'method' => 'GET',
+        'method' => 'POST',
         'path' => '/en/demo/task/{id}/delete',
         'handler' => 'Nofw\Controllers\TaskController::delete'
     ],
     [
-        'method' => 'GET',
+        'method' => 'POST',
         'path' => '/en/demo/task/{id}/done',
         'handler' => 'Nofw\Controllers\TaskController::done'
     ],

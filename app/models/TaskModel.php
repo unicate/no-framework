@@ -30,7 +30,8 @@ class TaskModel {
     }
 
     public function done($id) {
-        return $this->model->update(['status'=> '1'],['id' => $id]);
+        $status = ($this->model->getOne(['id'=>$id])['status'] == '0') ? 1 : 0;
+        return $this->model->update(['status'=> $status],['id' => $id]);
     }
 
 

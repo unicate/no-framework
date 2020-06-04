@@ -8,7 +8,7 @@ use Nofw\Services\TranslationService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Tuupola\Middleware\JwtAuthentication;
-use Unicate\LanguageDetection\Detection;
+use Unicate\LanguageDetection\LanguageDetection;
 use Unicate\Logger\Logger;
 use Unicate\Translation\Translation;
 use \Psr\Log\LoggerInterface;
@@ -22,8 +22,8 @@ return [
         return new Logger($config->getLogLevel(), Constants::LOGS_DIR);
     },
 
-    Detection::class => function (Config $config) {
-        return new Detection($config->getDefaultLang(), $config->getAvailableLang());
+    LanguageDetection::class => function (Config $config) {
+        return new LanguageDetection($config->getDefaultLang(), $config->getAvailableLang());
     },
 
     JwtAuthentication::class => function (Config $config) {
@@ -67,9 +67,9 @@ return [
         ];
         return new Medoo($dbConfig);
     },
-    Translation::class => function (Detection $langDetection) {
+    Translation::class => function (LanguageDetection $langDetection) {
         $translationDefinition = require_once Constants::TRANSLATION_FILE;
-        $lang = $langDetection->detectLang();
+        $lang = $langDetection->byUri()->getLang();
         return new Translation($translationDefinition, $lang);
     },
 

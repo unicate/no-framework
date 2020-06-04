@@ -9,7 +9,7 @@
     "tuupola/slim-jwt-auth": "3.4.0",
     "catfan/Medoo": "1.7.10",
     "unicate/packagist-test" : "1.1",
-    "unicate/language-detection" : "1.0",
+    "unicate/language-detection" : "1.1",
     "unicate/logger" : "1.1",
     "unicate/translation" : "1.0"
   },

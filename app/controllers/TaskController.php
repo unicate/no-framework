@@ -41,11 +41,11 @@ class TaskController extends AbstractController {
 
     public function delete(ServerRequestInterface $request, array $args): ResponseInterface {
         $this->model->delete($args['id']);
-        return $this->redirect('../../tasks');
+        return $this->list($request, $args);
     }
     public function done(ServerRequestInterface $request, array $args): ResponseInterface {
         $this->model->done($args['id']);
-        return $this->redirect('../../tasks');
+        return $this->list($request, $args);
 
     }
 
