@@ -37,7 +37,7 @@ return [
             "attribute" => 'jwt',
             "relaxed" => ["127.0.0.1", "localhost", "unicate.local", "silver.local"],
             "error" => function (Response $response) use ($basePath) {
-                $response->getBody()->write("<h1>401 Not authorized</h1><p><a href='$basePath/login'>Login</a></p>");
+                $response->getBody()->write("<h1>401 Not authorized</h1><p><a href='$basePath'>Back</a></p>");
                 return $response->withStatus(401);
             },
             "before" => function (Request $request, $arguments) {

@@ -4,10 +4,10 @@ return [
     // English Translation
     // ***********************
     'en' => [
-        'html.lang' => 'en',
+        'lang' => 'en',
         // hero
         'hero.title' => 'No Framework',
-        'hero.subtitle' => 'As little "framework" as possible, as much as required.',
+        'hero.subtitle' => 'Components YES, Frameworks NO!',
         // index
         'index.head.title' => 'Index EN',
         'index.title' => 'Welcome!',
@@ -25,7 +25,7 @@ return [
     // German Translation
     // ***********************
     'de' => [
-        'html.lang' => 'de',
+        'lang' => 'de',
         // hero
         'hero.title' => 'No Framework',
         'hero.subtitle' => 'So wenig "Framework" wie möglich, soviel wie nötig.',
@@ -47,7 +47,7 @@ return [
     // French Translation
     // ***********************
     'fr' => [
-        'html.lang' => 'fr',
+        'lang' => 'fr',
         // index
         'index.head.title' => 'Index FR',
         'index.title' => 'Bonjour',
