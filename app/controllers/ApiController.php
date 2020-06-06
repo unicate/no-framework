@@ -17,18 +17,15 @@ use Psr\Http\Message\ResponseInterface;
 use Nofw\Core\Config;
 
 class ApiController extends AbstractController {
-    private $config;
     private $model;
 
-    public function __construct(Config $config, UserModel $model) {
-        $this->config = $config;
+    public function __construct(UserModel $model) {
         $this->model = $model;
     }
 
     public function index(ServerRequestInterface $request, array $args): ResponseInterface {
         return $this->json([
             'data' => 'some data',
-            'db_data' => $this->model->info(),
             'links' => [
                 'link1' => 'http://link1.com',
                 'link2' => 'http://link2.com'
