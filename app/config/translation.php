@@ -9,7 +9,7 @@ return [
         'hero.title' => 'No Framework',
         'hero.subtitle' => 'Packages YES, Framework NO!',
         // index
-        'index.head.title' => 'Index EN',
+        'index.head.title' => 'No-Framework',
         'index.title' => 'Welcome!',
         'index.text' => 'Attention: This is not a framework!',
         // login
@@ -28,19 +28,7 @@ return [
         'lang' => 'de',
         // hero
         'hero.title' => 'No Framework',
-        'hero.subtitle' => 'So wenig "Framework" wie möglich, soviel wie nötig.',
-        // index
-        'index.head.title' => 'Index DE',
-        'index.title' => 'Willkommen!',
-        'index.text' => 'Achtung: Das ist kein Framework!',
-        // login
-        'login.head.title' => 'Login EN',
-        'login.title' => 'Login',
-        'login.text' => 'Gratuliere, du bist eingeloggt..',
-        // logout
-        'logout.head.title' => 'Logout EN',
-        'logout.title' => 'Logout',
-        'logout.text' => 'Tschüss!',
+        'hero.subtitle' => 'Packages JA, Framework NEIN!',
     ],
 
     // ***********************
@@ -48,18 +36,9 @@ return [
     // ***********************
     'fr' => [
         'lang' => 'fr',
-        // index
-        'index.head.title' => 'Index FR',
-        'index.title' => 'Bonjour',
-        'index.text' => 'Attention: C\'est ne pas un Framework!',
-        // login
-        'login.head.title' => 'Login FR',
-        'login.title' => 'Login',
-        'login.text' => 'Oui, oui, you are logged in.',
-        // logout
-        'logout.head.title' => 'Logout FR',
-        'logout.title' => 'Logout',
-        'logout.text' => 'Au revoid... you are logged out!',
+        // hero
+        'hero.title' => 'No Framework',
+        'hero.subtitle' => 'Packages OUI, Framework NON!',
     ],
 ];
 
