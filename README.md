@@ -45,7 +45,7 @@ time to learn and understand, overhead and slower execution.
 Use Git or Composer:
 
 ```
-git clone https://github.com/unicate/no-framework.git
+git clone https://github.com/unicate/no-framework.git my-project-name
 composer install
 ```
 
@@ -56,6 +56,9 @@ composer @todo
 The "Task List" Demo is a simple example application. Download the code and see what happens.
 To help you understand, a view hints and principles:
 
+- **Important:** Setup a local Test-Database with the code in `db/`.
+- **Important:** Copy the .env-default to .env in `app/config` and enter DB connection details.
+- **Important:** To start the local PHP server, just execute  `serve.sh`.
 - The architecture is based on the [MVC](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) pattern.
 - Objects are only created by the Dependency Injection container and configured in `app/config/dependencies.php`
 - All environment dependent configuration is done in `app/config/.env`.
