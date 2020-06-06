@@ -17,9 +17,8 @@ $this->layout('templates/master', $data);
         <article class="message is-info is-size-5">
 
             <div class="message-body">
-                "No-framework" is based on <strong>popular an proven packages</strong> which are easily exchangeable
-                with other packages
-                you like or already know.
+                "No-framework" is based on <strong>popular and proven packages</strong> which are easily exchangeable
+                with other packages you like or already know.
             </div>
         </article>
         <p>
@@ -35,7 +34,7 @@ $this->layout('templates/master', $data);
                 I want to have <strong>control</strong> and I want to <strong>understand</strong> what I'm doing.<br>
                 I want to <strong>start small</strong> and <strong>extend</strong> if necessary.<br>
                 I want to <strong>focus</strong> on the <strong>solution</strong>, not the framework.<br>
-                I want to <strong>develop fast</strong> without reinventing the wheel.<br>
+                I want to <strong>develop fast</strong> but without reinventing the wheel.<br>
                 I want to use <strong>interchangeable components</strong>.<br>
             </div>
         </article>

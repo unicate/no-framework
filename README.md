@@ -6,7 +6,7 @@ Packages YES, Framework NO!
 
 > Call it **"Glue"** or call it **"Boilerplate"**. "No-Framework" aims to give you a head start for development with a simple and understandable foundation. 
 
-> "No-framework" is based on **popular an proven packages** which are easily exchangeable with others you like or already know. 
+> "No-framework" is based on **popular and proven packages** which are easily exchangeable with others you like or already know. 
 
 Mainly the following packages are used: For dependency injection
 [PHP-DI](https://php-di.org),
@@ -20,7 +20,7 @@ and a few others... And also little self written code as "glue" in between.
 - I want to have **control** and I want to **understand** what I'm doing.<br>
 - I want to **start small** and **extend** if necessary.<br>
 - I want to **focus** on the **solution**, not the framework.<br>
-- I want to **develop fast** without reinventing the wheel.<br>
+- I want to **develop fast** but without reinventing the wheel.<br>
 - I want to use **interchangeable components**.<br>    
 
 The basic answer to satisfy all these needs are packages. Packages as extendable, exchangeable components. With Composer and Packagist the PHP ecosystem offers a perfect solution for this.             
