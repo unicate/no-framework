@@ -40,7 +40,8 @@ $this->layout('templates/master', $data);
             </div>
         </article>
         <p>
-            The basic answer to satisfy all these needs are <strong>packages</strong>. Packages as extendable, exchangeable
+            The basic answer to satisfy all these needs are <strong>packages</strong>. Packages as extendable,
+            exchangeable
             components.
             With <a href="https://getcomposer.org/" target="_blank">Composer</a> and
             <a href="https://packagist.org/" target="_blank">Packagist</a> the PHP ecosystem offers a perfect solution
@@ -65,12 +66,16 @@ $this->layout('templates/master', $data);
             <strong>CONs:</strong> Generic solution that might not suit your needs, limited control,
             time to learn and understand, overhead and slower execution.
         </p>
+        <h3 class="title is-3">Disclaimer & License</h3>
         <article class="message is-danger is-size-5">
             <div class="message-body">
                 This code should help you build your own solution. It's not mature and fully tested software.
                 You use anything at your own risk. Have fun with it.
             </div>
         </article>
+        No-Framework is released under
+        the <a href="https://raw.githubusercontent.com/unicate/licenses/master/MIT/MIT-Licence.txt" target="_blank">MIT Licence</a>.
+
     </div>
 </div>
 
@@ -82,26 +87,29 @@ $this->layout('templates/master', $data);
         </p>
         <pre><code class="language-javascript">composer ...</code></pre>
         <pre><code class="language-javascript">git clone ...</code></pre>
-    </div>
-</div>
 
-<div id="start" class="content is-medium">
-    <div class="box">
-        <h3 class="title is-3">Demo</h3>
+
         <p>
             The "Task List" Demo is a simple example application. Download the code and see what happens.
         </p>
         <p>To help you understand, a view hints and principles:</p>
         <ul>
-            <li>The architecture is based on the <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank">MVC</a> pattern.</li>
-            <li>Objects are only created by the Dependency Injection container and configured in <code>app/config/dependencies.php</code></li>
+            <li>The architecture is based on the <a
+                        href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller"
+                        target="_blank">MVC</a> pattern.
+            </li>
+            <li>Objects are only created by the Dependency Injection container and configured in <code>app/config/dependencies.php</code>
+            </li>
             <li>All environment dependent configuration is done in <code>app/config/.env</code>.</li>
             <li>Routes are defined in <code>app/config/routes.php</code>.</li>
             <li>If you want to change file paths, use <code>app/core/constants.php</code>.</li>
             <li>Your controller should extend <code>AbstractController</code> class.</li>
             <li>Only CSS and JS files should be located in the public directory.</li>
-            <li>If you like to exchange a basic component, have a look at <code>app/config/dependencies.php</code> and the service classes in
-                <code>app/services</code>.</li>
+            <li>If you like to exchange a basic component, have a look at <code>app/config/dependencies.php</code> and
+                the
+                service classes in
+                <code>app/services</code>.
+            </li>
         </ul>
 
         Folder structure is pretty self explaining:
