@@ -31,7 +31,8 @@ return [
         $jwtConfig = [
             "path" => $basePath . "/en/demo",
             "ignore" => [
-                $basePath . "/en/demo/login"
+                $basePath . "/en/demo/login",
+                $basePath . "/en/demo/register"
             ],
             "secret" => $config->getApiKey(),
             "attribute" => 'jwt',
