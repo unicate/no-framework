@@ -9,14 +9,16 @@ $this->layout('templates/master', $data);
         <article class="message is-info is-size-5">
 
             <div class="message-body">
-                Call it <strong>"Glue"</strong> or call it <strong>"Boilerplate"</strong>. "No-Framework" aims to give you a head start
+                Call it <strong>"Glue"</strong> or call it <strong>"Boilerplate"</strong>. "No-Framework" aims to give
+                you a head start
                 for development with a simple and understandable foundation.
             </div>
         </article>
         <article class="message is-info is-size-5">
 
             <div class="message-body">
-                "No-framework" is based on <strong>popular an proven components</strong> which are easily exchangeable with other components
+                "No-framework" is based on <strong>popular an proven packages</strong> which are easily exchangeable
+                with other packages
                 you like or already know.
             </div>
         </article>
@@ -29,7 +31,6 @@ $this->layout('templates/master', $data);
         </p>
         <h3 class="title is-3">Why No-Framework?</h3>
         <article class="message is-info is-size-5">
-
             <div class="message-body">
                 I want to have <strong>control</strong> and I want to <strong>understand</strong> what I'm doing.<br>
                 I want to <strong>start small</strong> and <strong>extend</strong> if necessary.<br>
@@ -39,9 +40,11 @@ $this->layout('templates/master', $data);
             </div>
         </article>
         <p>
-            The basic answer to satisfy all these needs are <strong>components</strong>. Extendable, exchangeable components.
+            The basic answer to satisfy all these needs are <strong>packages</strong>. Packages as extendable, exchangeable
+            components.
             With <a href="https://getcomposer.org/" target="_blank">Composer</a> and
-            <a href="https://packagist.org/" target="_blank">Packagist</a> the PHP ecosystem offers a perfect solution for this.
+            <a href="https://packagist.org/" target="_blank">Packagist</a> the PHP ecosystem offers a perfect solution
+            for this.
         </p>
 
         <h3 class="title is-3">What it's not!</h3>
@@ -53,9 +56,7 @@ $this->layout('templates/master', $data);
             <a href="http://www.slimframework.com/" target="_blank">Slim</a> and others.
         </p>
         <p>
-            Using a framework offers some great advantages but has also a few drawbacks which have been discussed in
-            detail on major
-            forum platforms. To summarize:
+            Using a framework offers some great advantages but has also a few drawbacks. In short that's the following:
         </p>
         <p>
             <strong>PROs:</strong> Fast Development, Security, Documentation, Maintenance and Community.
@@ -64,6 +65,12 @@ $this->layout('templates/master', $data);
             <strong>CONs:</strong> Generic solution that might not suit your needs, limited control,
             time to learn and understand, overhead and slower execution.
         </p>
+        <article class="message is-danger is-size-5">
+            <div class="message-body">
+                This code should help you build your own solution. It's not mature and fully tested software.
+                You use anything at your own risk. Have fun with it.
+            </div>
+        </article>
     </div>
 </div>
 
@@ -78,28 +85,47 @@ $this->layout('templates/master', $data);
     </div>
 </div>
 
-<div id="faq" class="content is-medium">
-    <h3 class="title is-3">FAQ</h3>
+<div id="start" class="content is-medium">
     <div class="box">
-        <article class="message is-info">
-            <div class="message-header">
-                Some good question....
-            </div>
+        <h3 class="title is-3">Demo</h3>
+        <p>
+            The "Task List" Demo is a simple example application. Download the code and see what happens.
+        </p>
+        <p>To help you understand, a view hints and principles:</p>
+        <ul>
+            <li>The architecture is based on the <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" target="_blank">MVC</a> pattern.</li>
+            <li>Objects are only created by the Dependency Injection container and configured in <code>app/config/dependencies.php</code></li>
+            <li>All environment dependent configuration is done in <code>app/config/.env</code>.</li>
+            <li>Routes are defined in <code>app/config/routes.php</code>.</li>
+            <li>If you want to change file paths, use <code>app/core/constants.php</code>.</li>
+            <li>Your controller should extend <code>AbstractController</code> class.</li>
+            <li>Only CSS and JS files should be located in the public directory.</li>
+            <li>If you like to exchange a basic component, have a look at <code>app/config/dependencies.php</code> and the service classes in
+                <code>app/services</code>.</li>
+        </ul>
+
+        Folder structure is pretty self explaining:
+        <pre><code class="">|-- app
+|  |-- core
+|  |-- config
+|  |-- middlewares
+|  |-- utils
+|  |-- models
+|  |-- logs
+|  |-- controllers
+|  |-- views
+|  |  |-- templates
+|  |-- services
+|-- public
+|  |-- css
+|  |-- js
+|-- db
+|-- vendor
+</code></pre>
+        <article class="message is-info is-size-5">
             <div class="message-body">
-                Answer...
+                Now go and build something and <strong>make people happy</strong>!
             </div>
         </article>
     </div>
-    <div class="box">
-        <article class="message is-info">
-            <div class="message-header">
-                Another good question....
-            </div>
-            <div class="message-body">
-                Another answer...
-            </div>
-        </article>
-    </div>
-
-
 </div>

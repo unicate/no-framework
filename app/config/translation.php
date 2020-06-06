@@ -7,7 +7,7 @@ return [
         'lang' => 'en',
         // hero
         'hero.title' => 'No Framework',
-        'hero.subtitle' => 'Components YES, Frameworks NO!',
+        'hero.subtitle' => 'Packages YES, Framework NO!',
         // index
         'index.head.title' => 'Index EN',
         'index.title' => 'Welcome!',
