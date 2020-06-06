@@ -3,9 +3,8 @@ $data = ['head_title' => $this->tlt('login.head.title')];
 $this->layout('templates/master', $data);
 ?>
 <div class="content is-medium">
-    <h3 class="title is-3">Register</h3>
-
     <div class="box">
+        <h3 class="title is-3">Register</h3>
         <?php if ($success === true): ?>
         <div class="message is-success">
             <div class="message-body">

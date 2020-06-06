@@ -3,7 +3,6 @@
     <ul class="menu-list">
         <li><a href="#about" class=""><i class="fas fa-user"></i> About</a></li>
         <li><a href="#start" class=""><i class="fas fa-play"></i> Getting Started</a></li>
-        <li><a href="#faq" class=""><i class="fas fa-question"></i> FAQ</a></li>
         <li><a href="<?= $this->tlt('lang') ?>/demo/login" class=""><i class="fas fa-star"></i> Demo</a></li>
     </ul>
     <p class="menu-label">

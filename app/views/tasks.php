@@ -4,8 +4,8 @@ $this->layout('templates/master', $data);
 ?>
 
 <div class="content is-medium">
-    <h3 class="title is-3">Tasks</h3>
     <div class="box">
+        <h3 class="title is-3">Tasks</h3>
         <div class="columns">
             <div class="column is-one-third">
                 <form method="post" action="en/demo/tasks" enctype="application/x-www-form-urlencoded">
