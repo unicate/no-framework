@@ -45,11 +45,12 @@ time to learn and understand, overhead and slower execution.
 Use Git or Composer:
 
 ```
-git checkout unicate/....
+git clone https://github.com/unicate/no-framework.git
+composer install
 ```
 
 ```
-composer require unicate/...
+composer @todo
 ```
 
 The "Task List" Demo is a simple example application. Download the code and see what happens.

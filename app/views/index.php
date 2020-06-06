@@ -85,51 +85,10 @@ $this->layout('templates/master', $data);
         <p>
             Use GIT or Composer to download the code and play around with the Demo application.
         </p>
-        <pre><code class="language-javascript">composer ...</code></pre>
-        <pre><code class="language-javascript">git clone ...</code></pre>
-
-
+        <pre><code class="language-javascript">git clone https://github.com/unicate/no-framework.git</code></pre>
         <p>
-            The "Task List" Demo is a simple example application. Download the code and see what happens.
+            For more information see the <a href="https://github.com/unicate/no-framework/blob/master/README.md">Readme</a> on Github.
         </p>
-        <p>To help you understand, a view hints and principles:</p>
-        <ul>
-            <li>The architecture is based on the <a
-                        href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller"
-                        target="_blank">MVC</a> pattern.
-            </li>
-            <li>Objects are only created by the Dependency Injection container and configured in <code>app/config/dependencies.php</code>
-            </li>
-            <li>All environment dependent configuration is done in <code>app/config/.env</code>.</li>
-            <li>Routes are defined in <code>app/config/routes.php</code>.</li>
-            <li>If you want to change file paths, use <code>app/core/constants.php</code>.</li>
-            <li>Your controller should extend <code>AbstractController</code> class.</li>
-            <li>Only CSS and JS files should be located in the public directory.</li>
-            <li>If you like to exchange a basic component, have a look at <code>app/config/dependencies.php</code> and
-                the
-                service classes in
-                <code>app/services</code>.
-            </li>
-        </ul>
-
-        Folder structure is pretty self explaining:
-        <pre><code class="">|-- app
-|  |-- core
-|  |-- config
-|  |-- middlewares
-|  |-- utils
-|  |-- models
-|  |-- logs
-|  |-- controllers
-|  |-- views
-|  |  |-- templates
-|  |-- services
-|-- public
-|  |-- css
-|  |-- js
-|-- db
-|-- vendor
-</code></pre>
         <article class="message is-info is-size-5">
             <div class="message-body">
                 Now go and build something and <strong>make people happy</strong>!
