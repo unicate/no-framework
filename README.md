@@ -50,7 +50,7 @@ composer install
 ```
 
 ```
-composer @todo
+composer create-project unicate/no-framework my-project-name
 ```
 
 The "Task List" Demo is a simple example application. Download the code and see what happens.
