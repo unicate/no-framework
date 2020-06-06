@@ -11,7 +11,7 @@
     "league/plates": "3.3.0",
     "php-di/php-di": "6.1.0",
     "tuupola/slim-jwt-auth": "3.4.0",
-    "catfan/Medoo": "1.7.10",
+    "catfan/medoo": "1.7.10",
     "unicate/packagist-test": "1.1",
     "unicate/language-detection": "1.1",
     "unicate/logger": "1.1",
