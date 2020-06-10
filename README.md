@@ -89,7 +89,7 @@ Folder structure is pretty self explaining:
 |-- vendor
 ```
 
-## Disclaimer & Licence
+## Disclaimer & License
 > This code should help you build your own solution. It's not mature and fully tested software. You use anything at your own risk. Have fun with it. 
 
 No-Framework is released under the [MIT](https://raw.githubusercontent.com/unicate/licenses/master/MIT/MIT-Licence.txt) licence.
