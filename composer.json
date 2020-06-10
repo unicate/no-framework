@@ -12,10 +12,12 @@
     "php-di/php-di": "6.1.0",
     "tuupola/slim-jwt-auth": "3.4.0",
     "catfan/medoo": "1.7.10",
-    "unicate/packagist-test": "1.1",
-    "unicate/language-detection": "1.1",
-    "unicate/logger": "1.1",
+    "unicate/language-detection": "1.2",
+    "unicate/logger": "1.2",
     "unicate/translation": "1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6"
   },
   "autoload": {
     "psr-4": {

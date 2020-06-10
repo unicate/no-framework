@@ -23,7 +23,7 @@ return [
     },
 
     LanguageDetection::class => function (Config $config) {
-        return new LanguageDetection($config->getDefaultLang(), $config->getAvailableLang());
+        return new LanguageDetection($config->getAvailableLang());
     },
 
     JwtAuthentication::class => function (Config $config) {
