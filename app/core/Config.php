@@ -16,7 +16,6 @@ class Config {
     private $appVersion;
     private $logLevel;
     private $apiKey;
-    private $defaultLang;
     private $availableLang;
     private $basePath;
     private $dbHost;
@@ -32,7 +31,6 @@ class Config {
         $this->appVersion = $_ENV['APP_VERSION'];
         $this->logLevel = $_ENV['LOG_LEVEL'];
         $this->apiKey = $_ENV['API_KEY'];
-        $this->defaultLang = $_ENV['DEFAULT_LANG'];
         $this->availableLang = $_ENV['AVAILABLE_LANG'];
         $this->basePath = $_ENV['BASE_PATH'];
         $this->dbHost = $_ENV['DB_HOST'];
@@ -52,10 +50,6 @@ class Config {
 
     public function getApiKey(): string {
         return $this->apiKey;
-    }
-
-    public function getDefaultLang(): string {
-        return $this->defaultLang;
     }
 
     public function getAvailableLang(): array {

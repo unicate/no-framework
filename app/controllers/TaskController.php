@@ -18,18 +18,22 @@ use Psr\Http\Message\ResponseInterface;
 use Nofw\Services\ViewService;
 use Nofw\Utils\JWTHelper;
 use Psr\Log\LoggerInterface;
+use Unicate\Logger\Logger;
 
 
 class TaskController extends AbstractController {
     private $model;
     protected $view;
+    private $logger;
 
-    public function __construct(TaskModel $model, ViewService $view) {
+    public function __construct(TaskModel $model, ViewService $view, LoggerInterface $logger) {
         $this->model = $model;
         $this->view = $view;
+        $this->logger = $logger;
     }
 
     public function list(ServerRequestInterface $request, array $args): ResponseInterface {
+        $this->logger->debug('List Tasks');
         return $this->page('tasks', [
             'tasks' => $this->model->list()
         ]);
