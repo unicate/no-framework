@@ -9,16 +9,11 @@ declare(strict_types=1);
 
 namespace Nofw\Controllers;
 
-use Nofw\Core\Config;
-use Nofw\models\TaskModel;
-use Nofw\models\UserModel;
+use Nofw\Models\TaskModel;
 use Psr\Http\Message\ServerRequestInterface;
-use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
 use Nofw\Services\ViewService;
-use Nofw\Utils\JWTHelper;
 use Psr\Log\LoggerInterface;
-use Unicate\Logger\Logger;
 
 
 class TaskController extends AbstractController {

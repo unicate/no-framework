@@ -1,42 +1,28 @@
 <?php
 
-namespace services;
+namespace Nofw\Tests\Services;
 
 use Medoo\Medoo;
 use Nofw\Core\Config;
 use Nofw\Core\Constants;
+use Nofw\Models\UserModel;
 use Nofw\Services\DatabaseService;
-use PHPUnit\Framework\TestCase;
+use Nofw\Tests\AbstractDBService;
 use \PDO;
 
-class DatabaseServiceTest extends TestCase {
+class DatabaseServiceTest extends AbstractDBService {
 
     private $provider;
 
     protected function setUp() {
-        $config = new Config(Constants::CONFIG_FILE);
-        $dbConfig = [
-            'database_type' => 'mysql',
-            'server' => $config->getDbHost(),
-            'port' => $config->getDbPort(),
-            'database_name' => $config->getDbName(),
-            'username' => $config->getDbUser(),
-            'password' => $config->getDbPassword(),
-            'charset' => 'utf8',
-            "logging" => true,
-            'prefix' => 'nofw_',
-            'option' => [
-                PDO::ATTR_CASE => PDO::CASE_NATURAL
-            ]
-        ];
-        $this->provider = new Medoo($dbConfig);
-
+        parent::setUp();
     }
 
     public function testConnection() {
-        $db = new DatabaseService($this->provider);
-        $info = $db->info();
+        $info = $this->getDBService()->info();
         echo print_r($info, true);
         $this->assertNotEmpty($info);
     }
+
+
 }

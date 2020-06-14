@@ -1,6 +1,6 @@
 <?php
 
-namespace services;
+namespace Nofw\Tests\Services;
 
 use League\Plates\Engine;
 use Nofw\Core\Config;
@@ -13,7 +13,6 @@ class ViewServiceTest extends TestCase {
     private $provider;
 
     protected function setUp() {
-        $config = new Config(Constants::CONFIG_FILE);
         $this->provider = new Engine(__DIR__);
     }
 

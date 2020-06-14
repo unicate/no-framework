@@ -5,7 +5,7 @@
  * @license Released under the MIT license
  */
 
-namespace Nofw\models;
+namespace Nofw\Models;
 
 use Nofw\Services\DatabaseService;
 
@@ -17,7 +17,7 @@ class UserModel {
         $this->model = $db->model(self::class);
     }
 
-    public function register(string $name, string $email, string $password) {
+    public function register(string $name, string $email, string $password) :bool {
         return $this->model->insert([
             'name' => $name,
             'email' => $email,
@@ -27,7 +27,7 @@ class UserModel {
         ]);
     }
 
-    public function verifyLogin(string $email, string $password) {
+    public function verifyLogin(string $email, string $password) : bool {
         return $this->model->hasOne([
             'email' => $email,
             'password' => $password

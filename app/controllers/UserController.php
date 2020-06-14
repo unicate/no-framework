@@ -10,13 +10,11 @@ declare(strict_types=1);
 namespace Nofw\Controllers;
 
 use Nofw\Core\Config;
-use Nofw\models\UserModel;
+use Nofw\Models\UserModel;
 use Psr\Http\Message\ServerRequestInterface;
-use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
 use Nofw\Services\ViewService;
 use Nofw\Utils\JWTHelper;
-use Psr\Log\LoggerInterface;
 
 
 class UserController extends AbstractController {

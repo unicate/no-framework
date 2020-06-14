@@ -23,6 +23,11 @@
     "psr-4": {
       "Nofw\\": "app/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Nofw\\Tests\\": "tests/"
+    }
   }
 }
 
